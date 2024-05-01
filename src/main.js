@@ -5,6 +5,10 @@ import {
   SearchByJenre,
 } from "./fetch.js";
 
+/*
+  main 애매하다 싶은 함수 들은 일단 다 여기다 넣으세요.
+*/
+
 //리다이렉트 함수
 function handleRedirect(container) {
   document.addEventListener("DOMContentLoaded", function () {

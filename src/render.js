@@ -1,5 +1,10 @@
 // ------------------display  and event ------------------------
 
+/*
+  문서 API  작성 하는 함수
+
+*/
+
 import { cardClickEvent, jenreBtnClickEvent } from "./eventListener.js";
 
 // 영화 카드를 생성하는 함수

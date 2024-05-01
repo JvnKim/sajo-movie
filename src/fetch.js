@@ -14,6 +14,10 @@ const options = {
   },
 };
 
+/*
+  API 요청 응답 코드 적는 곳
+*/
+
 // 초기 영화 목록을 불러오는 함수
 export async function fetch_Movies() {
   displaySpinner(true); // 스피너 실행
