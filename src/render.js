@@ -8,7 +8,7 @@
 import { cardClickEvent, jenreBtnClickEvent } from "./eventListener.js";
 
 // 영화 카드를 생성하는 함수
-export function createMovieCard(movie) {
+export function display_MovieCard(movie) {
   const movieDiv = document.createElement("div");
   movieDiv.classList.add("card");
   movieDiv.innerHTML = `
@@ -28,18 +28,18 @@ export function createMovieCard(movie) {
 }
 
 // 영화 목록을 랜더링해 주는 함수
-export function displayMovies(movies) {
+export function display_Movies(movies) {
   const movieListDiv = document.getElementById("movieList");
   movieListDiv.innerHTML = ""; // 기존의 영화 카드를 모두 지우고
 
   movies.forEach((movie) => {
-    const movieDiv = createMovieCard(movie);
+    const movieDiv = display_MovieCard(movie);
     movieListDiv.appendChild(movieDiv);
   });
 }
 
 // 스피너 랜더링 하는 함수
-export function displaySpinner(isvisible) {
+export function display_Spinner(isvisible) {
   const spinnerContainer = document.getElementById("spinner-container");
   if (isvisible) {
     spinnerContainer.innerHTML = `<div class="fetch_ing-spinner"></div>`;
@@ -49,8 +49,8 @@ export function displaySpinner(isvisible) {
 }
 
 // 장르 버튼 렌더링 하는 함수
-export function displayJenreButtons(jenres, container) {
-  container.innerHTML = "";
+export function display_JenreButtons(jenres) {
+  const buttonContainer = document.getElementById("jenres_buttons");
   jenres.forEach((key, value) => {
     let btnDiv = document.createElement("div");
     btnDiv.id = "jenre-button";
@@ -61,6 +61,6 @@ export function displayJenreButtons(jenres, container) {
     // 장르 버튼 클릭 이벤트 처리 함수(eventListener.js)
     jenreBtnClickEvent(key, btnDiv);
 
-    container.appendChild(btnDiv);
+    buttonContainer.appendChild(btnDiv);
   });
 }
