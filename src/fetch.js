@@ -29,7 +29,7 @@ export async function fetch_Movies() {
       // 영화 출력해주기
       display_Movies(movies, document.getElementById("movieList")); // render.js 함수
     })
-    .catch((errpr) => {
+    .catch((error) => {
       console.log(error);
     });
 }
