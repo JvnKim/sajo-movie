@@ -73,30 +73,27 @@ export const cardClickEvent = (movie, container) => {
       const detailPageUrl = `/detail.html?id=${movieId}`;
       window.location.href = detailPageUrl;
     } else {
-      console.error('영화 ID가 없습니다.'); 
+      console.error('영화 ID가 없습니다.');
     }
   });
 };
 
-<<<<<<< HEAD
 // 영화 카드를 클릭했을 때 상세 내용 페이지로 이동하는 함수
 document.querySelectorAll('.movie-card').forEach(card => {
   card.addEventListener('click', () => {
     const movieId = card.dataset.movieId;
-    const detailPageUrl = `detail.html?id=${movieId}`;
+    const detailPageUrl = `/detail.html?id=${movieId}`;
     window.location.href = detailPageUrl;
   });
 });
 
 // 검색 폼을 관리하는 함수
-=======
->>>>>>> 8ee4437474b67f99ceb16c091ca06f9fa79278bb
 export function handleSearch() {
   const form = document.querySelector(".search_form");
   const input = document.getElementById("search_input");
 
   form.addEventListener("submit", (event) => {
-    event.preventDefault(); 
+    event.preventDefault();
     const searchTerm = input.value;
     fetch_SearchMovies(searchTerm);
   });
@@ -110,7 +107,7 @@ export function handleMovieCardClick() {
         const detailPageUrl = `/detail.html?id=${movieId}`;
         window.location.href = detailPageUrl;
       } else {
-        console.error('영화 ID가 없습니다.'); 
+        console.error('영화 ID가 없습니다.');
       }
     });
   });

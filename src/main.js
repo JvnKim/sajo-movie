@@ -45,11 +45,8 @@ function handleRedirect(container) {
 
 handleSearch();
 fetch_Jenres();
-<<<<<<< HEAD
 
 //영화 정보 불러오기
-=======
->>>>>>> 8ee4437474b67f99ceb16c091ca06f9fa79278bb
 fetch_Movies();
 handleRedirect("h1");
 handleMovieCardClick(); // 수정된 부분
