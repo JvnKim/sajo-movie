@@ -1,11 +1,10 @@
-// 전은겸 작성
 // url에서 영화 id 가져오기
 const urlParams = new URLSearchParams(window.location.search);
 const movieId = urlParams.get('id');
 
 // 영화 정보 가져오기
 async function fetchMovieDetails() {
-    const response = await fetch(`https://api.themoviedb.org/3/movie/${movieId}?language=ko-KR&api_key=`)
+    const response = await fetch(`https://api.themoviedb.org/3/movie/${movieId}?language=ko-KR&api_key=2398811a7d146c725b3ad2f4d57c66f0`)
     const data = await response.json();
     return data;
 }
@@ -14,8 +13,8 @@ async function fetchMovieDetails() {
 function displayrating(rating) {
     const ratingElement = document.getElementById('rating');
     const stars = '⭐⭐⭐⭐⭐'.slice(0, rating); // 별표 문자열 생성
-    const average = (rating / 2).toFixed(2); // 평균 평점 계산 및 소수점 두 자리까지 표시
-    ratingElement.textContent = `⭐ 평균 점수: ${stars} (${average}/5)`;
+    const average = rating.toFixed(2); // 평균 평점 계산 및 소수점 두 자리까지 표시
+    ratingElement.textContent = `⭐ ${average}`;
 }
 
 
@@ -47,4 +46,4 @@ function displayMovieDetails(movie) {
 window.onload = async () => {
     const movie = await fetchMovieDetails();
     displayMovieDetails(movie);
-}; // 전은겸 작성
+}; 

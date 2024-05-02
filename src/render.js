@@ -64,3 +64,22 @@ export function display_JenreButtons(jenres) {
     buttonContainer.appendChild(btnDiv);
   });
 }
+
+
+// 전은겸 작성 240502 //뭐가 안맞아서 잠깐 주석처리
+// // 배우&제작진 표시 함수
+// export function display_Credits(credits) {
+//   const creditsContainer = document.getElementById("credits");
+//   creditsContainer.innerHTML = ""; // 기존 정보 모두 지워
+
+//   credits.forEach((credit) => {
+//     const creditDiv = document.createElement("div");
+//     creditDiv.classList.add("credit-item");
+//     creditDiv.innerHTML = `
+//       <img src="https://image.tmdb.org/t/p/w500/${credit.profile_path}" alt="${credit.name}" class="credit-img">
+//       <p class="credit-name">${credit.name}</p>
+//       <p class="credit-character">${credit.character || "N/A"}</p>
+//     `;
+//     creditsContainer.appendChild(creditDiv);
+//   });
+// }

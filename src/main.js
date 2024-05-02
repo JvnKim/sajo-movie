@@ -1,6 +1,7 @@
 import { handleSearch } from "./eventListener.js";
 import { fetch_Jenres, fetch_Movies } from "./fetch.js";
-import { handleMovieCardClick } from "./eventListener.js"; //주현우 작성
+// import { handleMovieCardClick } from "./eventListener.js"; //주현우 작성
+import "./detail.js"; // 전은겸 작성
 
 /*
   main 애매하다 싶은 함수 들은 일단 다 여기다 넣으세요.
@@ -20,6 +21,7 @@ handleSearch();
 
 //장르 항목들 불러오기
 fetch_Jenres();
+
 //영화 정보 불러오기
 fetch_Movies();
 

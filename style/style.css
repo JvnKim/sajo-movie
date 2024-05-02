@@ -10,17 +10,24 @@ header {
   padding: 20px;
   text-align: center;
 }
+
 h1 {
-  font-size: 3em; /* 큰 헤더 폰트 사이즈 설정 */
-  text-shadow: 2px 2px 4px #000; /* 그림자 효과 추가 */
-  letter-spacing: 2px; /* 글자 간격 설정 */
+  font-size: 3em;
+  /* 큰 헤더 폰트 사이즈 설정 */
+  text-shadow: 2px 2px 4px #000;
+  /* 그림자 효과 추가 */
+  letter-spacing: 2px;
+  /* 글자 간격 설정 */
   transition: letter-spacing 0.75s ease, color 0.3s ease, font-size 0.3s ease;
   cursor: pointer;
 }
+
 h1:hover {
-  color: #9b3922; /* 호버 시에 텍스트 색상을 빨간색으로 변경합니다. */
+  color: #9b3922;
+  /* 호버 시에 텍스트 색상을 빨간색으로 변경합니다. */
   letter-spacing: 10px;
 }
+
 .form {
   top: 0;
   text-align: center;
@@ -31,12 +38,14 @@ h1:hover {
   background-color: #0c0c0c;
   color: #f2613f;
 }
+
 .search_form {
   display: inline-block;
   margin-top: 5px;
   margin-left: 25px;
   width: 100%;
 }
+
 .search_form label {
   font-size: 20px;
   font-weight: bold;
@@ -53,6 +62,7 @@ h1:hover {
   transition: border-color 0.3s ease;
   cursor: pointer;
 }
+
 .search_form button {
   padding: 15px 6px;
   background-color: #f2613f;
@@ -61,22 +71,31 @@ h1:hover {
   border: none;
   cursor: pointer;
 }
+
 .search_form button:hover {
   background-color: #9b3922;
 }
+
 .search_form input {
-  width: 35%; /* input 필드의 너비를 조절 */
-  margin-right: 10px; /* 버튼과의 간격 조절 */
+  width: 35%;
+  /* input 필드의 너비를 조절 */
+  margin-right: 10px;
+  /* 버튼과의 간격 조절 */
 }
+
 .search_form button {
-  width: 50px; /* 버튼의 너비를 조절 */
+  width: 50px;
+  /* 버튼의 너비를 조절 */
 }
 
 .movieList {
   display: grid;
-  grid-template-columns: repeat(4, 1fr); /* 3개의 열을 가로로 나눔 */
-  grid-auto-rows: minmax(100px, auto); /* 세로로 무한정으로 나눔 */
-  grid-gap: 10px; /* 그리드 아이템 사이의 간격 */
+  grid-template-columns: repeat(4, 1fr);
+  /* 3개의 열을 가로로 나눔 */
+  grid-auto-rows: minmax(100px, auto);
+  /* 세로로 무한정으로 나눔 */
+  grid-gap: 10px;
+  /* 그리드 아이템 사이의 간격 */
 }
 
 .card {
@@ -97,8 +116,10 @@ h1:hover {
   min-width: 350px;
   max-width: 20vw;
 }
+
 .card:hover {
-  box-shadow: 0 0 20px #f2613f; /* 호버 시 그림자 효과 강화 */
+  box-shadow: 0 0 20px #f2613f;
+  /* 호버 시 그림자 효과 강화 */
   height: 400px;
 }
 
@@ -138,17 +159,21 @@ h1:hover {
   display: -webkit-box;
   margin-right: 5px;
 
-  -webkit-line-clamp: 3; /* 보여질 줄 수 */
+  -webkit-line-clamp: 3;
+  /* 보여질 줄 수 */
   -webkit-box-orient: vertical;
 }
+
 .card:hover .card-content {
   opacity: 1;
 }
+
 .button-container {
   display: flex;
   flex-wrap: wrap;
   margin-top: 5px;
-  gap: 13px; /* 버튼 사이의 간격 */
+  gap: 13px;
+  /* 버튼 사이의 간격 */
   padding: 20px;
   justify-content: center;
   max-width: 100%;
@@ -164,10 +189,14 @@ h1:hover {
   color: white;
   background-color: #f2613f;
 
-  text-align: center; /* 텍스트를 가운데 정렬 */
-  white-space: nowrap; /* 텍스트가 버튼에서 줄바꿈되지 않도록 함 */
-  overflow: hidden; /* 내용이 너무 길면 잘림 */
-  text-overflow: ellipsis; /* 내용이 넘치면 말줄임표로 표시 */
+  text-align: center;
+  /* 텍스트를 가운데 정렬 */
+  white-space: nowrap;
+  /* 텍스트가 버튼에서 줄바꿈되지 않도록 함 */
+  overflow: hidden;
+  /* 내용이 너무 길면 잘림 */
+  text-overflow: ellipsis;
+  /* 내용이 넘치면 말줄임표로 표시 */
 }
 
 .jenre-button:hover {
@@ -192,6 +221,7 @@ h1:hover {
   0% {
     transform: rotate(0deg);
   }
+
   100% {
     transform: rotate(360deg);
   }
