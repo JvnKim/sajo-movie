@@ -71,11 +71,10 @@ function createCommentContainer(movieId) {
       comment: commentInput,
     };
     const newComments = [...(movieData.comments || []), newComment];
-    login(movieId, idInput, passwordInput, newComments); // 영화 ID를 함께 저장
+    login(movieId, idInput, passwordInput, newComments);
     location.reload();
   });
 
-  // 이전에 작성된 댓글 보여주기
   const previousCommentsElement = document.createElement("div");
   previousCommentsElement.innerHTML = "<h3>댓글</h3>";
   if (comments && comments.length > 0) {
@@ -84,14 +83,12 @@ function createCommentContainer(movieId) {
       const commentItem = document.createElement("li");
       commentItem.textContent = `${commentObj.comment} by ${commentObj.id}`;
 
-      // 댓글 삭제 버튼 추가
       const deleteButton = document.createElement("button");
       deleteButton.textContent = "삭제";
       deleteButton.addEventListener("click", () => {
-        deleteComment(movieId, index); // 영화 ID를 함께 전달
+        deleteComment(movieId, index);
       });
       commentItem.appendChild(deleteButton);
-
       commentsList.appendChild(commentItem);
     });
     previousCommentsElement.appendChild(commentsList);
@@ -104,7 +101,8 @@ function createCommentContainer(movieId) {
   return commentContainer;
 }
 
-// DOMContentLoaded 이벤트 리스너 수정
+// document > DOMContentLoaded : 문서가 로드되면 실행되는 이벤트 리스너.
+// 현재 URL에서 영화 ID를 가져와 댓글 컨테이너를 생성하고 문서의 body에 추가.
 document.addEventListener("DOMContentLoaded", () => {
   const urlParams = new URLSearchParams(window.location.search);
   const movieId = urlParams.get("id");
