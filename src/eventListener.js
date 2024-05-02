@@ -97,7 +97,7 @@ export function handleMovieCardClick() {
         const detailPageUrl = `/detail.html?id=${movieId}`;
         window.location.href = detailPageUrl;
       } else {
-        console.error('영화 ID가 없습니다.');
+        console.error('영화 ID가 없습니당.'); 
       }
     });
   });
