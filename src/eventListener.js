@@ -66,6 +66,7 @@ export function jenreBtnClickEvent(key, container) {
   });
 }
 
+// 장르 버튼 클릭 이벤트 처리 함수
 export const cardClickEvent = (movie, container) => {
   container.addEventListener("click", () => {
     const movieId = movie.id;
@@ -73,11 +74,12 @@ export const cardClickEvent = (movie, container) => {
       const detailPageUrl = `/detail.html?id=${movieId}`;
       window.location.href = detailPageUrl;
     } else {
-      console.error('영화 ID가 없습니다.'); 
+      console.error('영화 ID가 없습니다.'); // 예외 처리
     }
   });
 };
 
+// 검색 폼을 관리하는 함수
 export function handleSearch() {
   const form = document.querySelector(".search_form");
   const input = document.getElementById("search_input");
@@ -89,6 +91,7 @@ export function handleSearch() {
   });
 }
 
+// 영화 카드를 클릭했을 때 상세 내용 페이지로 이동하는 함수
 export function handleMovieCardClick() {
   document.querySelectorAll('.movie-card').forEach(card => {
     card.addEventListener('click', (event) => {
