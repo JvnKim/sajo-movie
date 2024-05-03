@@ -33,6 +33,11 @@ function deleteComment(movieId, index) {
   const movieData =
     JSON.parse(localStorage.getItem(`movieData_${movieId}`)) || {};
   const comments = movieData.comments || [];
+  const password = prompt("댓글을 삭제하려면 비밀번호를 입력하세요:");
+  if (password !== movieData.password) {
+    alert("비밀번호가 일치하지 않습니다. 삭제할 수 없습니다.");
+    return;
+  }
   comments.splice(index, 1);
   localStorage.setItem(
     `movieData_${movieId}`,
