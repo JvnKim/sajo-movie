@@ -54,9 +54,6 @@
 //     });
 //   });
 
-
-
-
 // 2024년 5월1일 주현우 작성
 import { fetch_SearchByJenre, fetch_SearchMovies } from "./fetch.js";
 
@@ -73,22 +70,21 @@ export const cardClickEvent = (movie, container) => {
       const detailPageUrl = `/detail.html?id=${movieId}`;
       window.location.href = detailPageUrl;
     } else {
-      console.error('영화 ID가 없습니다.');
-      console.error('영화 ID가 없습니다.'); // 예외 처리
+      console.error("영화 ID가 없습니다.");
+      console.error("영화 ID가 없습니다."); // 예외 처리
     }
   });
 };
 
 // 영화 카드를 클릭했을 때 상세 내용 페이지로 이동하는 함수
-document.querySelectorAll('.movie-card').forEach(card => {
-  card.addEventListener('click', () => {
+document.querySelectorAll(".movie-card").forEach((card) => {
+  card.addEventListener("click", () => {
     const movieId = card.dataset.movieId;
     const detailPageUrl = `/detail.html?id=${movieId}`;
     window.location.href = detailPageUrl;
   });
 });
 
-// 검색 폼을 관리하는 함수
 // 검색 폼을 관리하는 함수
 export function handleSearch() {
   const form = document.querySelector(".search_form");
@@ -102,14 +98,14 @@ export function handleSearch() {
 }
 
 export function handleMovieCardClick() {
-  document.querySelectorAll('.movie-card').forEach(card => {
-    card.addEventListener('click', (event) => {
+  document.querySelectorAll(".movie-card").forEach((card) => {
+    card.addEventListener("click", (event) => {
       const movieId = event.currentTarget.dataset.movieId;
       if (movieId) {
         const detailPageUrl = `/detail.html?id=${movieId}`;
         window.location.href = detailPageUrl;
       } else {
-        console.error('영화 ID가 없습니다.');
+        console.error("영화 ID가 없습니다.");
       }
     });
   });

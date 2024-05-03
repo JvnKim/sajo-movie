@@ -25,16 +25,15 @@
 // // h1 태그를 누르면 redirect 된다.
 // handleRedirect("h1");
 
+
+
+
 // // 영화 카드 클릭 이벤트 처리 함수 호출 (2024년 5월1일 주현우 작성)
 // handleMovieCardClick();
-
-
-
 import { handleSearch, handleMovieCardClick } from "./eventListener.js";
 import { fetch_Jenres, fetch_Movies } from "./fetch.js";
 // import { handleMovieCardClick } from "./eventListener.js"; //주현우 작성
 import "./detail.js"; // 전은겸 작성
-
 
 //리다이렉트 함수
 function handleRedirect(container) {

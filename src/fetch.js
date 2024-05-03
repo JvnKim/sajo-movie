@@ -19,8 +19,6 @@ const options = {
 */
 // 배우 불러오는 함수
 
-
-
 // 초기 영화 목록을 불러오는 함수
 export async function fetch_Movies() {
   display_Spinner(true); // 스피너 실행
