@@ -80,7 +80,8 @@ async function displayCastDetails(movieId) {
         const actorImage = document.createElement('img');
         actorImage.src = `https://image.tmdb.org/t/p/w300/${actor.profile_path}`;
         actorImage.alt = `${actor.name} 사진`;
-        actorImage.onerror = () => actorImage.src = 'fallback-image-url';
+        // actorImage.onerror = () => actorImage.src = 'fallback-image-url';
+        actorImage.onerror = () => actorImage.src = '/no-image.png' // 프로필 로드 실패시 대체 이미지 
 
         const actorName = document.createElement('span');
         actorName.textContent = actor.name;
@@ -108,11 +109,12 @@ async function displayDirectorDetails(movieId) {
             const directorImage = document.createElement('img');
             directorImage.src = `https://image.tmdb.org/t/p/w300/${director.profile_path}`;
             directorImage.alt = `${director.name} 사진`;
-            directorImage.onerror = () => directorImage.src = 'fallback-image-url';
+            // directorImage.onerror = () => directorImage.src = 'fallback-image-url';
+            directorImage.onerror = () => directorImage.src = '/no-image.png'
 
             const directorName = document.createElement('span');
-            directorName.textContent = director.name;
 
+            directorName.textContent = director.name;
             directorInfo.appendChild(directorImage);
             directorInfo.appendChild(directorName);
             directorsElement.appendChild(directorInfo);
