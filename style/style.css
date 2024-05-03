@@ -275,27 +275,25 @@ h1:hover {
     max-height: 0; /* 초기 높이 설정 */
 }
 
+/* 2024.5.3 운성 장르 버튼 수정 */
 .jenre-button {
-    padding: 10px 20px;
-    margin: 5px;
+    padding: 5px 10px;
+    margin: 1px;
     display: inline-block;
-    border-radius: 10px;
-    border: none; /* 테두리 제거 */
-    color: white;
-    background-color: #f2613f;
+    border-radius: 20px;
+    border: 2px solid transparent;
+    color: #001d3d;
+    background: linear-gradient(145deg, #ff7a00, #ffd60a);
     text-align: center;
-}
-/* 로딩 스피너 스타일 */
-.jenre-button {
-    padding: 5px 10px; /* 패딩을 줄임 */
-    margin: 3px;
-    display: inline-block;
-    border-radius: 10px;
-    color: white;
-    background-color: #f2613f;
-    text-align: center;
+    cursor: pointer;
     transition: all 0.3s ease;
+    background-clip: padding-box;
 }
+
+.jenre-button:hover {
+    border-color: rgba(255, 255, 255, 0.5);
+}
+
 /* 운성 */
 
 /* 로딩 스피너 스타일 */

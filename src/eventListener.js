@@ -109,6 +109,8 @@ export function handleSearch() {
     });
 
     // 검색 아이콘 클릭 이벤트
+
+    // 2024.5.3 운성
     searchIcon.addEventListener('click', () => {
         if (input.style.width === '0px' || input.style.width === '') {
             input.style.width = '240px';
