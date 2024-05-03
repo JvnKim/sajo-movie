@@ -1,3 +1,4 @@
+
 /* 2024. 05.03  김민곤 작성*/
 
 :root {
@@ -223,3 +224,8 @@ form {
 .commentslist button:hover {
   background-color: #ff2222; /* 삭제 버튼 호버 색상 */
 }
+=======
+#movieDetail {
+    color: white;
+}
+

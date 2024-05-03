@@ -35,6 +35,8 @@ import { fetch_Jenres, fetch_Movies } from "./fetch.js";
 // import { handleMovieCardClick } from "./eventListener.js"; //주현우 작성
 import "./detail.js"; // 전은겸 작성
 
+
+//리다이렉트 함수
 function handleRedirect(container) {
   document.addEventListener("DOMContentLoaded", function () {
     document.querySelector(container).addEventListener("click", function () {
@@ -43,10 +45,15 @@ function handleRedirect(container) {
   });
 }
 
+//리다이렉트 함수
 handleSearch();
+
+//장르 항목들 불러오기
 fetch_Jenres();
 
 //영화 정보 불러오기
 fetch_Movies();
+
 handleRedirect("h1");
+
 handleMovieCardClick(); // 수정된 부분
