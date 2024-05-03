@@ -1,8 +1,7 @@
-
 /* 2024. 05.03  김민곤 작성*/
 
 :root {
-  --backgroud-color: #faf9f6;
+  --background-color: #faf9f6;
   --RichBlack: #000814;
   --OxfordBlue: #001d3d;
   --YaleBlue: #003566;
@@ -30,7 +29,7 @@
 
 /* 기본 설정 */
 body {
-  background-color: #faf9f6;
+  background-color: #001d3d;
   font-family: Arial, sans-serif;
   margin: 0;
   padding: 0;
@@ -224,8 +223,6 @@ form {
 .commentslist button:hover {
   background-color: #ff2222; /* 삭제 버튼 호버 색상 */
 }
-=======
 #movieDetail {
-    color: white;
+  color: white;
 }
-
