@@ -38,6 +38,7 @@ async function displayMovieDetails() {
     const directorsElement = document.getElementById("directors");
     const runtimeElement = document.getElementById("runtime"); // 런타임을 표시할 요소 2024년05월03일 주현우 작성
     const overviewElement = document.getElementById("overview"); // 줄거리를 표시할 요소 2024년05월03일 주현우 작성
+    const releaseDateElement = document.getElementById("releaseDate"); // 개봉일 표시_전은겸 240503
 
     posterElement.src = `https://image.tmdb.org/t/p/w500/${movie.poster_path}`;
     titleElement.textContent = movie.title;
@@ -65,6 +66,9 @@ async function displayMovieDetails() {
 
     // 줄거리 표시 2024년05월03일 주현우 작성
     overviewElement.textContent = movie.overview ? "줄거리: " + movie.overview : "줄거리 업데이트 중입니다.";
+
+    // 개봉일 표시_전은겸 240503
+    releaseDateElement.textContent = "개봉일: " + movie.release_date;
   } catch (error) {
     console.error("영화 정보를 가져오는 중에 오류가 발생했습니다:", error);
   }
