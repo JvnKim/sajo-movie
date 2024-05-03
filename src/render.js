@@ -13,7 +13,7 @@ export function display_MovieCard(movie) {
   movieDiv.classList.add("card");
   movieDiv.innerHTML = `
     <div class="card-image">
-      <image src="https://image.tmdb.org/t/p/w500/${movie.backdrop_path}"/>
+      <image src="https://image.tmdb.org/t/p/w500/${movie.poster_path}"/>
     </div>
     <div class="card-content">
       <h2>${movie.title}</h2>
