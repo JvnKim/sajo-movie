@@ -11,14 +11,19 @@ function login(movieId, id, password, comments) {
 
 // function createCommentFrom : 댓글 폼 HTML을 작성하는 함수
 // 아이디, 패스워드, 댓글 입력칸을 제공.
+// [수정자 : 김민곤  (아이디, 패스워드) / (댓글 작성란/ 목록)  2부분은로 분리]
 function createCommentForm() {
   const commentForm = document.createElement("form");
   commentForm.innerHTML = `
+  <div id="inputInfo">
         <input type="text" id="idInput" placeholder="아이디">
         <input type="password" id="passwordInput" placeholder="패스워드">
+  </div>
+  <div id="inputText">
         <textarea id="commentText" placeholder="댓글을 작성하세요..."></textarea>
         <button type="submit">댓글 작성</button>
-      `;
+  </div>
+        `;
   return commentForm;
 }
 
@@ -76,6 +81,8 @@ function createCommentContainer(movieId) {
   });
 
   const previousCommentsElement = document.createElement("div");
+
+  previousCommentsElement.className = "commentslist";
   previousCommentsElement.innerHTML = "<h3>댓글</h3>";
   if (comments && comments.length > 0) {
     const commentsList = document.createElement("ul");
