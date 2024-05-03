@@ -1,3 +1,5 @@
+// eventListener.js
+
 // import { fetch_SearchByJenre, fetch_SearchMovies } from "./fetch.js";
 
 // /*
@@ -53,9 +55,7 @@
 //       }
 //     });
 //   });
-
-
-
+// }
 
 // 2024년 5월1일 주현우 작성
 import { fetch_SearchByJenre, fetch_SearchMovies } from "./fetch.js";

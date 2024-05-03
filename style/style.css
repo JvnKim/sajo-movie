@@ -4,6 +4,13 @@ body {
   background-color: #0c0c0c;
 }
 
+/* 2024년 5월 3일 주현우 작성 */
+header h1 a { 
+  color: inherit; /* 부모 요소의 색상 상속 */
+  text-decoration: none; /* 밑줄 제거 */
+  cursor: pointer; /* 포인터 커서 설정 */
+}
+
 header {
   background-color: #0c0c0c;
   color: #f2613f;
