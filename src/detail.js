@@ -18,8 +18,8 @@ async function fetchMovieDetails() {
 
 // 별점 표시 함수
 function displayRating(rating) {
-    const ratingElement = document.getElementById("rating");
-    const stars = "⭐️".repeat(rating);
+    const ratingElement = document.getElementById("rating");  // 별표 문자열 생성
+    const stars = "⭐️".repeat(rating); // 평균 평점 계산 및 소수점 두 자리까지 표시 
     const average = rating.toFixed(2);
     ratingElement.textContent = `평점: ${average} ${stars}`;
 }
@@ -67,7 +67,7 @@ async function displayMovieDetails() {
     // 런타임, 줄거리, 개봉일 표시
     runtimeElement.textContent = "런타임: " + movie.runtime + "분";
     overviewElement.textContent = movie.overview ? "줄거리: " + movie.overview : "줄거리 업데이트 중입니다.";
-    releaseDateElement.textContent = "개봉일: " + movie.release_date;
+    releaseDateElement.textContent = "개봉일: " + movie.release_date; // 
 
     displayCastAndDirectorsProfile(movie);
 }
