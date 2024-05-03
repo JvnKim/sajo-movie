@@ -6,7 +6,7 @@ const movieId = urlParams.get("id");
 async function fetchMovieDetails() {
     try {
         const response = await fetch(
-            `https://api.themoviedb.org/3/movie/${movieId}?language=ko-KR&api_key=2398811a7d146c725b3ad2f4d57c66f0`
+            `https://api.themoviedb.org/3/movie/${movieId}?language=ko-KR&api_key=2398811a7d146c725b3ad2f4d57c66f0&append_to_response=credits`
         );
         const data = await response.json();
         return data;
@@ -19,62 +19,60 @@ async function fetchMovieDetails() {
 // 별점 표시 함수
 function displayRating(rating) {
     const ratingElement = document.getElementById("rating");
-    const stars = "⭐️".repeat(rating); // 별표 문자열 생성
-    const average = rating.toFixed(2); // 평균 평점 계산 및 소수점 두 자리까지 표시
+    const stars = "⭐️".repeat(rating);
+    const average = rating.toFixed(2);
     ratingElement.textContent = `평점: ${average} ${stars}`;
 }
 
-// 출연진 및 감독 텍스트만 표시하는 함수
-function displayCastAndDirectorsText(movie) {
-    const castElement = document.getElementById("castText");
-    const directorsElement = document.getElementById("directorsText");
+// 출연진 및 감독의 프로필 이미지와 추가 정보 표시 // 240503 전은겸 수정 및 추가
+function displayCastAndDirectorsProfile(movie) {
+    const castProfiles = document.getElementById("castList");
+    const directorsProfiles = document.getElementById("directorsList");
 
-    const castList = movie.credits && movie.credits.cast ? movie.credits.cast.map((actor) => actor.name).join(", ") : "";
-    const directorsList = movie.credits && movie.credits.crew
-        ? movie.credits.crew
-            .filter((crewMember) => crewMember.department === "Directing")
-            .map((crewMember) => crewMember.name)
-            .join(", ")
-        : "";
+    movie.credits.cast.forEach(actor => {
+        let actorInfo = document.createElement('div');
+        actorInfo.className = 'profile-item';
+        actorInfo.innerHTML = `<img src="https://image.tmdb.org/t/p/w200/${actor.profile_path}" alt="${actor.name}">
+                               <p>${actor.name}</p>`;
+        castProfiles.appendChild(actorInfo);
+    });
 
-    castElement.textContent = "출연진: " + castList;
-    directorsElement.textContent = "감독: " + directorsList;
+    movie.credits.crew.filter(crewMember => crewMember.department === "Directing")
+        .forEach(director => {
+            let directorInfo = document.createElement('div');
+            directorInfo.className = 'profile-item';
+            directorInfo.innerHTML = `<img src="https://image.tmdb.org/t/p/w200/${director.profile_path}" alt="${director.name}">
+                                  <p>${director.name}</p>`;
+            directorsProfiles.appendChild(directorInfo);
+        });
 }
 
 // 영화 정보 화면에 표시하는 함수
 async function displayMovieDetails() {
-    try {
-        const movie = await fetchMovieDetails();
+    const movie = await fetchMovieDetails();
+    if (!movie) return;  // 영화 정보가 없을 경우 함수 종료
 
-        if (!movie) return; // 영화 정보가 없을 경우 함수 종료
+    const posterElement = document.getElementById("poster");
+    const titleElement = document.getElementById("title");
+    const genreElement = document.getElementById("genre");
+    const runtimeElement = document.getElementById("runtime");
+    const overviewElement = document.getElementById("overview");
+    const releaseDateElement = document.getElementById("releaseDate");
 
-        const posterElement = document.getElementById("poster");
-        const titleElement = document.getElementById("title");
-        const genreElement = document.getElementById("genre");
-        const ratingElement = document.getElementById("rating");
-        const runtimeElement = document.getElementById("runtime");
-        const overviewElement = document.getElementById("overview");
-        const releaseDateElement = document.getElementById("releaseDate");
+    posterElement.src = `https://image.tmdb.org/t/p/w500/${movie.poster_path}`;
+    titleElement.textContent = movie.title;
+    genreElement.textContent = "장르: " + movie.genres.map(genre => genre.name).join(", ");
+    displayRating(Math.round(movie.vote_average));
 
-        posterElement.src = `https://image.tmdb.org/t/p/w500/${movie.poster_path}`;
-        titleElement.textContent = movie.title;
-        genreElement.textContent =
-            "장르: " + movie.genres.map((genre) => genre.name).join(", ");
+    // 런타임, 줄거리, 개봉일 표시
+    runtimeElement.textContent = "런타임: " + movie.runtime + "분";
+    overviewElement.textContent = movie.overview ? "줄거리: " + movie.overview : "줄거리 업데이트 중입니다.";
+    releaseDateElement.textContent = "개봉일: " + movie.release_date;
 
-        // 별점 표시
-        displayRating(Math.round(movie.vote_average));
-
-        // 출연진 및 감독 텍스트만 표시
-        displayCastAndDirectorsText(movie);
-
-        // 런타임, 줄거리, 개봉일 표시
-        runtimeElement.textContent = "런타임: " + movie.runtime + "분";
-        overviewElement.textContent = movie.overview ? "줄거리: " + movie.overview : "줄거리 업데이트 중입니다.";
-        releaseDateElement.textContent = "개봉일: " + movie.release_date;
-    } catch (error) {
-        console.error("영화 정보를 가져오는 중에 오류가 발생했습니다:", error);
-    }
+    displayCastAndDirectorsProfile(movie);
 }
 
 // 페이지 로드 시 영화 정보 가져와서 표시
-window.onload = displayMovieDetails;
+window.addEventListener('load', function () {
+    displayMovieDetails();
+});
