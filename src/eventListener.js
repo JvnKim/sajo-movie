@@ -74,6 +74,7 @@ export const cardClickEvent = (movie, container) => {
       window.location.href = detailPageUrl;
     } else {
       console.error('영화 ID가 없습니다.');
+      console.error('영화 ID가 없습니다.'); // 예외 처리
     }
   });
 };
@@ -87,6 +88,7 @@ document.querySelectorAll('.movie-card').forEach(card => {
   });
 });
 
+// 검색 폼을 관리하는 함수
 // 검색 폼을 관리하는 함수
 export function handleSearch() {
   const form = document.querySelector(".search_form");
