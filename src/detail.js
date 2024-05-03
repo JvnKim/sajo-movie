@@ -128,11 +128,12 @@ async function displayMovieDetails() {
         const posterElement = document.getElementById('poster');
         const titleElement = document.getElementById('title');
         const genreElement = document.getElementById('genre');
-
+        const releaseDateElement = document.getElementById('releaseDate'); // 개봉일 화면 표시_전은겸 240503 // _를 쓰면 개봉일: 은 뜨지만 프로필 안보임, D를 쓰면 프로필은 보이지만 개봉일이 안보임
 
         posterElement.src = `https://image.tmdb.org/t/p/w500/${movie.poster_path}`;
         titleElement.textContent = movie.title;
         genreElement.textContent = "장르: " + movie.genres.map(genre => genre.name).join(', ');
+        releaseDateElement.textContent = "개봉일: " + movie.release_date; // 개봉일 화면 표시_전은겸 240503
 
         displayRating(Math.round(movie.vote_average));
         displayCastDetails(movieId);
@@ -143,8 +144,10 @@ async function displayMovieDetails() {
     }
 }
 
+
+
 // 페이지 로드 시 영화 정보 가져와서 표시
 window.onload = displayMovieDetails;
 
-// 전은겸 240502 수정 및 추가
+// 전은겸 240503 수정 및 추가
 
