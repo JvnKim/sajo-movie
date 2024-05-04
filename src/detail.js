@@ -1,4 +1,3 @@
-
 // URL에서 영화 ID와 인물 ID 가져오기
 // // url에서 영화 id 가져오기
 // const urlParams = new URLSearchParams(window.location.search);
@@ -69,7 +68,7 @@ async function fetchMovieDetails() {
 }
 
 // 별점 표시 함수
-function displayRating(rating) {
+export function displayRating(rating) {
   const ratingElement = document.getElementById("rating");
   const stars = "⭐️".repeat(rating); // 별표 문자열 생성
   const average = rating.toFixed(2); // 평균 평점 계산 및 소수점 두 자리까지 표시
@@ -137,7 +136,6 @@ async function displayDirectorDetails(movieId) {
     });
 
   ratingElement.textContent = `평점: ${average} ${stars}`;
-
 }
 
 // 영화 정보 화면에 표시하는 함수
@@ -145,9 +143,7 @@ async function displayMovieDetails() {
   try {
     const movie = await fetchMovieDetails();
 
-
     if (!movie) return; // 영화 정보가 없을 경우 함수 종료
-
 
     const posterElement = document.getElementById("poster");
     const titleElement = document.getElementById("title");
@@ -166,23 +162,29 @@ async function displayMovieDetails() {
     displayRating(Math.round(movie.vote_average));
 
     // 출연진 정보 표시
-    const castList = movie.credits && movie.credits.cast ? movie.credits.cast.map((actor) => actor.name).join(", ") : "";
+    const castList =
+      movie.credits && movie.credits.cast
+        ? movie.credits.cast.map((actor) => actor.name).join(", ")
+        : "";
     castElement.textContent = "출연진: " + castList;
 
     // 감독 정보 표시
-    const directorsList = movie.credits && movie.credits.crew
-      ? movie.credits.crew
-          .filter((crewMember) => crewMember.department === "Directing")
-          .map((crewMember) => crewMember.name)
-          .join(", ")
-      : "";
+    const directorsList =
+      movie.credits && movie.credits.crew
+        ? movie.credits.crew
+            .filter((crewMember) => crewMember.department === "Directing")
+            .map((crewMember) => crewMember.name)
+            .join(", ")
+        : "";
     directorsElement.textContent = "감독: " + directorsList;
 
     // 런타임 표시 2024년05월03일 주현우 작성
     runtimeElement.textContent = "런타임: " + movie.runtime + "분";
 
     // 줄거리 표시 2024년05월03일 주현우 작성
-    overviewElement.textContent = movie.overview ? "줄거리: " + movie.overview : "줄거리 업데이트 중입니다.";
+    overviewElement.textContent = movie.overview
+      ? "줄거리: " + movie.overview
+      : "줄거리 업데이트 중입니다.";
 
     // 개봉일 표시_전은겸 240503
     releaseDateElement.textContent = "개봉일: " + movie.release_date;
