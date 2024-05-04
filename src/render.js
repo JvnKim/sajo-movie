@@ -19,7 +19,6 @@ export function display_MovieCard(movie) {
       <h2>${movie.title}</h2>
       <p>개봉일 : ${movie.release_date}</p>
       <p>평점 : ${Math.floor(movie.vote_average)}/10</p>
-      <p>${movie.overview || "정보없음"}</p>
     </div>
   `;
   // 카드 클릭 이벤트 처리 함수(eventListener.js)
@@ -64,7 +63,6 @@ export function display_JenreButtons(jenres) {
     buttonContainer.appendChild(btnDiv);
   });
 }
-
 
 // 전은겸 작성 240502 //뭐가 안맞아서 잠깐 주석처리
 // // 배우&제작진 표시 함수
