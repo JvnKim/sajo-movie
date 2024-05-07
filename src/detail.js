@@ -1,3 +1,4 @@
+
 // URL에서 영화 ID와 인물 ID 가져오기
 // // url에서 영화 id 가져오기
 // const urlParams = new URLSearchParams(window.location.search);
@@ -49,31 +50,21 @@
 // URL에서 영화 ID와 인물 ID 가져오기
 
 // URL에서 영화 ID 추출
-
 const urlParams = new URLSearchParams(window.location.search);
 const movieId = urlParams.get("id");
 
 // 영화 정보 가져오기
 async function fetchMovieDetails() {
-  try {
-    const response = await fetch(
-      `https://api.themoviedb.org/3/movie/${movieId}?language=ko-KR&api_key=2398811a7d146c725b3ad2f4d57c66f0`
-    );
-    const data = await response.json();
-    return data;
-  } catch (error) {
-    console.error("영화 정보를 가져오는 중에 오류가 발생했습니다:", error);
-    return null;
-  }
-}
-
-// 별점 표시 함수
-export function displayRating(rating) {
-  const ratingElement = document.getElementById("rating");
-  const stars = "⭐️".repeat(rating); // 별표 문자열 생성
-  const average = rating.toFixed(2); // 평균 평점 계산 및 소수점 두 자리까지 표시
-
-  ratingElement.textContent = `⭐ ${average}`;
+    try {
+        const response = await fetch(
+            `https://api.themoviedb.org/3/movie/${movieId}?language=ko-KR&api_key=2398811a7d146c725b3ad2f4d57c66f0&append_to_response=credits`
+        );
+        const data = await response.json();
+        return data;
+    } catch (error) {
+        console.error("영화 정보를 가져오는 중에 오류가 발생했습니다:", error);
+        return null;
+    }
 }
 
 // 출연진 정보와 사진 표시하는 함수
@@ -103,63 +94,61 @@ async function displayCastDetails(movieId) {
     actorInfo.appendChild(actorName);
     castElement.appendChild(actorInfo);
   });
+// 별점 표시 함수
+function displayRating(rating) {
+    const ratingElement = document.getElementById("rating");
+    const stars = "⭐️".repeat(rating);
+    const average = rating.toFixed(2);
+    ratingElement.textContent = `평점: ${average} ${stars}`;
+
 }
 
-// 감독 정보와 사진 표시하는 함수
-async function displayDirectorDetails(movieId) {
-  const response = await fetch(
-    `https://api.themoviedb.org/3/movie/${movieId}/credits?language=ko-KR&api_key=2398811a7d146c725b3ad2f4d57c66f0`
-  );
-  const credits = await response.json();
+// 출연진 및 감독의 프로필 이미지와 추가 정보 표시 // 240503 전은겸 수정 및 추가
+function displayCastAndDirectorsProfile(movie) {
+    const castProfiles = document.getElementById("castList");
+    const directorsProfiles = document.getElementById("directorsList");
 
-  const directorsElement = document.getElementById("directors");
-  directorsElement.innerHTML = "";
-
-  credits.crew
-    .filter((crewMember) => crewMember.department === "Directing")
-    .forEach((director) => {
-      const directorInfo = document.createElement("div");
-      directorInfo.className = "director";
-
-      const directorImage = document.createElement("img");
-      directorImage.src = `https://image.tmdb.org/t/p/w300/${director.profile_path}`;
-      directorImage.alt = `${director.name} 사진`;
-      // directorImage.onerror = () => directorImage.src = 'fallback-image-url';
-      directorImage.onerror = () => (directorImage.src = "/no-image.png");
-
-      const directorName = document.createElement("span");
-
-      directorName.textContent = director.name;
-      directorInfo.appendChild(directorImage);
-      directorInfo.appendChild(directorName);
-      directorsElement.appendChild(directorInfo);
+    movie.credits.cast.forEach(actor => {
+        let actorInfo = document.createElement('div');
+        actorInfo.className = 'profile-item';
+        actorInfo.innerHTML = `<img src="https://image.tmdb.org/t/p/w200/${actor.profile_path}" alt="${actor.name}">
+                               <p>${actor.name}</p>`;
+        castProfiles.appendChild(actorInfo);
     });
 
+
   ratingElement.textContent = `평점: ${average} ${stars}`;
+
+    movie.credits.crew.filter(crewMember => crewMember.department === "Directing")
+        .forEach(director => {
+            let directorInfo = document.createElement('div');
+            directorInfo.className = 'profile-item';
+            directorInfo.innerHTML = `<img src="https://image.tmdb.org/t/p/w200/${director.profile_path}" alt="${director.name}">
+                                  <p>${director.name}</p>`;
+            directorsProfiles.appendChild(directorInfo);
+        });
+
 }
 
 // 영화 정보 화면에 표시하는 함수
 async function displayMovieDetails() {
-  try {
     const movie = await fetchMovieDetails();
 
     if (!movie) return; // 영화 정보가 없을 경우 함수 종료
 
+
     const posterElement = document.getElementById("poster");
     const titleElement = document.getElementById("title");
     const genreElement = document.getElementById("genre");
-    const castElement = document.getElementById("cast");
-    const directorsElement = document.getElementById("directors");
-    const runtimeElement = document.getElementById("runtime"); // 런타임을 표시할 요소 2024년05월03일 주현우 작성
-    const overviewElement = document.getElementById("overview"); // 줄거리를 표시할 요소 2024년05월03일 주현우 작성
-    const releaseDateElement = document.getElementById("releaseDate"); // 개봉일 표시_전은겸 240503
+    const runtimeElement = document.getElementById("runtime");
+    const overviewElement = document.getElementById("overview");
+    const releaseDateElement = document.getElementById("releaseDate");
 
     posterElement.src = `https://image.tmdb.org/t/p/w500/${movie.poster_path}`;
     titleElement.textContent = movie.title;
-    genreElement.textContent =
-      "장르: " + movie.genres.map((genre) => genre.name).join(", ");
-
+    genreElement.textContent = "장르: " + movie.genres.map(genre => genre.name).join(", ");
     displayRating(Math.round(movie.vote_average));
+
 
     // 출연진 정보 표시
     const castList =
@@ -187,13 +176,17 @@ async function displayMovieDetails() {
       : "줄거리 업데이트 중입니다.";
 
     // 개봉일 표시_전은겸 240503
+
+    // 런타임, 줄거리, 개봉일 표시
+    runtimeElement.textContent = "런타임: " + movie.runtime + "분";
+    overviewElement.textContent = movie.overview ? "줄거리: " + movie.overview : "줄거리 업데이트 중입니다.";
+
     releaseDateElement.textContent = "개봉일: " + movie.release_date;
-  } catch (error) {
-    console.error("영화 정보를 가져오는 중에 오류가 발생했습니다.: ", error);
-  }
+
+    displayCastAndDirectorsProfile(movie);
 }
 
 // 페이지 로드 시 영화 정보 가져와서 표시
-window.onload = displayMovieDetails;
-
-// 전은겸 240502 수정 및 추가
+window.addEventListener('load', function () {
+    displayMovieDetails();
+});

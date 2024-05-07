@@ -88,52 +88,55 @@ document.querySelectorAll(".movie-card").forEach((card) => {
 
 // 검색 폼을 관리하는 함수
 export function handleSearch() {
-  const form = document.querySelector(".search_form");
-  const input = document.getElementById("search_input");
-  const searchIcon = document.getElementById("search_icon");
 
-  form.addEventListener("submit", async (event) => {
-    event.preventDefault(); // 폼 제출 기본 동작 중단
-    const searchTerm = input.value.trim(); // 공백 제거 후 검색어 가져오기
-    if (!searchTerm) {
-      console.log("검색어가 입력되지 않았습니다.");
-      return; // 검색어가 비어 있으면 처리 중지
-    }
-    try {
-      await fetch_SearchMovies(searchTerm);
-      // 검색 완료 후 입력창 숨기기
-      input.style.width = "0";
-      input.style.opacity = "0";
-    } catch (error) {
-      console.error("Search failed:", error);
-    }
-  });
+    const form = document.querySelector('.search_form');
+    const input = document.getElementById('search_input');
+    const searchIcon = document.getElementById('search_icon');
 
-  // 검색 아이콘 클릭 이벤트
-  searchIcon.addEventListener("click", () => {
-    if (input.style.width === "0px" || input.style.width === "") {
-      input.style.width = "240px";
-      input.style.opacity = "1";
-      input.focus();
-    } else {
-      input.style.width = "0";
-      input.style.opacity = "0";
-    }
-  });
+    form.addEventListener('submit', async (event) => {
+        event.preventDefault(); // 폼 제출 기본 동작 중단
+        const searchTerm = input.value.trim(); // 공백 제거 후 검색어 가져오기
+        if (!searchTerm) {
+            console.log('검색어가 입력되지 않았습니다.');
+            return; // 검색어가 비어 있으면 처리 중지
+        }
+        try {
+            await fetch_SearchMovies(searchTerm);
+            // 검색 완료 후 입력창 숨기기
+            input.style.width = '0';
+            input.style.opacity = '0';
+        } catch (error) {
+            console.error('Search failed:', error);
+        }
+    });
 
-  input.addEventListener("input", () => {
-    if (input.value.length > 0) {
-      input.style.width = "240px";
-      input.style.opacity = "1";
-    }
-  });
+    // 검색 아이콘 클릭 이벤트
 
-  input.addEventListener("blur", () => {
-    if (!input.value) {
-      input.style.width = "0";
-      input.style.opacity = "0";
-    }
-  });
+    // 2024.5.3 운성
+    searchIcon.addEventListener('click', () => {
+        if (input.style.width === '0px' || input.style.width === '') {
+            input.style.width = '240px';
+            input.style.opacity = '1';
+            input.focus();
+        } else {
+            input.style.width = '0';
+            input.style.opacity = '0';
+        }
+    });
+
+    input.addEventListener('input', () => {
+        if (input.value.length > 0) {
+            input.style.width = '240px';
+            input.style.opacity = '1';
+        }
+    });
+
+    input.addEventListener('blur', () => {
+        if (!input.value) {
+            input.style.width = '0';
+            input.style.opacity = '0';
+        }
+    });
 }
 
 export function handleMovieCardClick() {

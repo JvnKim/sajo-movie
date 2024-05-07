@@ -66,6 +66,7 @@ export function display_JenreButtons(jenres) {
   });
 }
 
+
 // 별점 별 찍기 [2024.05.04 김민곤]
 function display_ReviewStars(num) {
   num = Math.floor(num) / 2;
@@ -77,6 +78,7 @@ function display_ReviewStars(num) {
   return stars;
 }
 //#endregion
+
 // 전은겸 작성 240502 //뭐가 안맞아서 잠깐 주석처리
 // // 배우&제작진 표시 함수
 // export function display_Credits(credits) {

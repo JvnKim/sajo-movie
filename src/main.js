@@ -25,6 +25,9 @@
 // // h1 태그를 누르면 redirect 된다.
 // handleRedirect("h1");
 
+
+
+
 // // 영화 카드 클릭 이벤트 처리 함수 호출 (2024년 5월1일 주현우 작성)
 // handleMovieCardClick();
 
