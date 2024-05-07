@@ -2,7 +2,6 @@
 const urlParams = new URLSearchParams(window.location.search);
 const movieId = urlParams.get("id");
 
-
 // 영화 정보 가져오기
 async function fetchMovieDetails() {
     try {
@@ -19,8 +18,8 @@ async function fetchMovieDetails() {
 
 // 별점 표시 함수
 function displayRating(rating) {
-    const ratingElement = document.getElementById("rating");  // 별표 문자열 생성
-    const stars = "⭐️".repeat(rating); // 평균 평점 계산 및 소수점 두 자리까지 표시 
+    const ratingElement = document.getElementById("rating");
+    const stars = "⭐️".repeat(rating);
     const average = rating.toFixed(2);
     ratingElement.textContent = `평점: ${average} ${stars}`;
 }
@@ -29,29 +28,34 @@ function displayRating(rating) {
 function displayCastAndDirectorsProfile(movie) {
     const castProfiles = document.getElementById("castList");
     const directorsProfiles = document.getElementById("directorsList");
+    const defaultImage = "/no-image.png"; // 로컬 이미지 경로 설정 240507 전은겸
 
-    movie.credits.cast.forEach(actor => {
-        let actorInfo = document.createElement('div');
-        actorInfo.className = 'profile-item';
-        actorInfo.innerHTML = `<img src="https://image.tmdb.org/t/p/w200/${actor.profile_path}" alt="${actor.name}">
+    movie.credits.cast.forEach((actor) => {
+        let actorInfo = document.createElement("div");
+        actorInfo.className = "profile-item";
+        let profilePath = actor.profile_path ? `https://image.tmdb.org/t/p/w200/${actor.profile_path}` : defaultImage;
+        actorInfo.innerHTML = `<img src="${profilePath}" alt="${actor.name}" onerror="this.src='${defaultImage}'">
                                <p>${actor.name}</p>`;
         castProfiles.appendChild(actorInfo);
     });
 
-    movie.credits.crew.filter(crewMember => crewMember.department === "Directing")
-        .forEach(director => {
-            let directorInfo = document.createElement('div');
-            directorInfo.className = 'profile-item';
-            directorInfo.innerHTML = `<img src="https://image.tmdb.org/t/p/w200/${director.profile_path}" alt="${director.name}">
-                                  <p>${director.name}</p>`;
+    movie.credits.crew
+        .filter((crewMember) => crewMember.department === "Directing")
+        .forEach((director) => {
+            let directorInfo = document.createElement("div");
+            directorInfo.className = "profile-item";
+            let profilePath = director.profile_path ? `https://image.tmdb.org/t/p/w200/${director.profile_path}` : defaultImage;
+            directorInfo.innerHTML = `<img src="${profilePath}" alt="${director.name}" onerror="this.src='${defaultImage}'">
+                                      <p>${director.name}</p>`;
             directorsProfiles.appendChild(directorInfo);
         });
 }
 
+
 // 영화 정보 화면에 표시하는 함수
 async function displayMovieDetails() {
     const movie = await fetchMovieDetails();
-    if (!movie) return;  // 영화 정보가 없을 경우 함수 종료
+    if (!movie) return; // 영화 정보가 없을 경우 함수 종료
 
     const posterElement = document.getElementById("poster");
     const titleElement = document.getElementById("title");
@@ -62,18 +66,20 @@ async function displayMovieDetails() {
 
     posterElement.src = `https://image.tmdb.org/t/p/w500/${movie.poster_path}`;
     titleElement.textContent = movie.title;
-    genreElement.textContent = "장르: " + movie.genres.map(genre => genre.name).join(", ");
+    genreElement.textContent =
+        "장르: " + movie.genres.map((genre) => genre.name).join(", ");
     displayRating(Math.round(movie.vote_average));
 
-    // 런타임, 줄거리, 개봉일 표시
     runtimeElement.textContent = "런타임: " + movie.runtime + "분";
-    overviewElement.textContent = movie.overview ? "줄거리: " + movie.overview : "줄거리 업데이트 중입니다.";
-    releaseDateElement.textContent = "개봉일: " + movie.release_date; // 
+    overviewElement.textContent = movie.overview
+        ? "줄거리: " + movie.overview
+        : "줄거리 업데이트 중입니다.";
+    releaseDateElement.textContent = "개봉일: " + movie.release_date;
 
     displayCastAndDirectorsProfile(movie);
 }
 
 // 페이지 로드 시 영화 정보 가져와서 표시
-window.addEventListener('load', function () {
+window.addEventListener("load", function () {
     displayMovieDetails();
 });
