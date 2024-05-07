@@ -5,11 +5,17 @@ const movieId = urlParams.get("id");
 // 영화 정보 가져오기
 async function fetchMovieDetails() {
     try {
-        const response = await fetch(
-            `https://api.themoviedb.org/3/movie/${movieId}?language=ko-KR&api_key=2398811a7d146c725b3ad2f4d57c66f0&append_to_response=credits`
-        );
-        const data = await response.json();
-        return data;
+        // movieId가 null이 아닌 경우에만 API 요청을 보냄
+        if (movieId) {
+            const response = await fetch(
+                `https://api.themoviedb.org/3/movie/${movieId}?language=ko-KR&api_key=2398811a7d146c725b3ad2f4d57c66f0&append_to_response=credits`
+            );
+            const data = await response.json();
+            return data;
+        } else {
+            console.error("영화 ID가 없습니다.");
+            return null;
+        }
     } catch (error) {
         console.error("영화 정보를 가져오는 중에 오류가 발생했습니다:", error);
         return null;
@@ -48,7 +54,6 @@ function displayCastAndDirectorsProfile(movie) {
         });
 }
 
-
 // 영화 정보 화면에 표시하는 함수
 async function displayMovieDetails() {
     const movie = await fetchMovieDetails();
@@ -67,6 +72,7 @@ async function displayMovieDetails() {
         "장르: " + movie.genres.map((genre) => genre.name).join(", ");
     displayRating(Math.round(movie.vote_average));
 
+    // 런타임, 줄거리, 개봉일 표시
     runtimeElement.textContent = "런타임: " + movie.runtime + "분";
     overviewElement.textContent = movie.overview
         ? "줄거리: " + movie.overview
