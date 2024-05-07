@@ -18,7 +18,7 @@
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #ffc300; /* 스크롤바의 색상 */
+  background: #c0c0c0; /* 스크롤바의 색상 */
   border-radius: 6px; /* 스크롤바의 모서리 둥글기 */
 }
 
@@ -28,8 +28,6 @@
 
 /* 2024년 5월 3일 운성 수정 */
 body {
-  display: flex;
-  flex-direction: column;
   margin: 0;
   /* body의 마진을 제거 */
 }
@@ -51,7 +49,7 @@ body {
     var(--RichBlack)
   );
   display: grid;
-  margin: 10px auto 0 auto;
+  margin: 0px auto 0 auto;
   padding-top: 1.5rem;
   grid-template-columns: repeat(auto-fill, minmax(18rem, 20rem));
   grid-gap: 10px;

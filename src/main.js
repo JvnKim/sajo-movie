@@ -25,9 +25,6 @@
 // // h1 태그를 누르면 redirect 된다.
 // handleRedirect("h1");
 
-
-
-
 // // 영화 카드 클릭 이벤트 처리 함수 호출 (2024년 5월1일 주현우 작성)
 // handleMovieCardClick();
 
@@ -110,6 +107,6 @@ fetch_MovieList(28, "Action");
 //Comedy id = 35
 fetch_MovieList(35, "Comedy");
 
-handleRedirect("h1");
+// handleRedirect("h1");
 
 handleMovieCardClick(); // 수정된 부분

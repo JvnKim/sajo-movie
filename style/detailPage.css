@@ -34,12 +34,8 @@
 
 /* 기본 설정 */
 body {
-  display: flex;
-  flex-direction: column;
-  background-color: #001d3d;
   font-family: Arial, sans-serif;
   margin: 0;
-  color: #faf9f6;
 }
 
 #mainbody {
