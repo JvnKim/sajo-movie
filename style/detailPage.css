@@ -39,6 +39,7 @@ body {
   background-color: #001d3d;
   font-family: Arial, sans-serif;
   margin: 0;
+  color: #faf9f6;
 }
 
 #mainbody {
@@ -129,6 +130,8 @@ body {
 
 .scrolling-wrapper h3 {
   margin: 20px 28px 10px 0;
+  color: var(--Gold);
+  font-size: 1.5rem;
 }
 
 /* 
@@ -137,6 +140,7 @@ body {
   background-color: #003566;
   height: 20rem;
   display: flex;
+  align-items: center;
   overflow: auto;
   box-shadow: 0 8px 0 var(--RichBlack), 0 16px 0 var(--OxfordBlue);
 }
@@ -144,6 +148,8 @@ body {
   width: 10rem;
   height: auto;
   border-radius: 10%;
+  box-shadow: 3px 5px 3px rgba(0, 8, 20, 0.5);
+  margin-left: 1px;
 }
 
 /* 댓글 입력 폼 스타일*/
