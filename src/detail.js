@@ -2,6 +2,7 @@
 const urlParams = new URLSearchParams(window.location.search);
 const movieId = urlParams.get("id");
 
+
 // 영화 정보 가져오기
 async function fetchMovieDetails() {
     try {
