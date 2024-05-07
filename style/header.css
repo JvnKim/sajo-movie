@@ -13,6 +13,8 @@
   /* 조정된 패딩 */
   padding: 5px 10px;
   margin: 0;
+
+  overflow: hidden;
 }
 #header_main img {
   width: 100px;
