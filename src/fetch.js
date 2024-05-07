@@ -145,8 +145,8 @@ export async function fetch_SearchMovies(keyword) {
     let filteredMovies = data.results;
 
     // 영화 출력해주기
-    display_Movies(movies, "subbody"); // render.js 함수
-    return filteredMovies; // 검색된 영화 데이터를 반환
+    display_Movies(filteredMovies, "subbody"); // render.js 함수
+    // return filteredMovies; // 검색된 영화 데이터를 반환
   } catch (err) {
     console.error(err);
     throw err; // 에러를 호출자에게 전파
