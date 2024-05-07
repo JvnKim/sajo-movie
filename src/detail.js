@@ -38,7 +38,10 @@ function displayCastAndDirectorsProfile(movie) {
     movie.credits.cast.forEach((actor) => {
         let actorInfo = document.createElement("div");
         actorInfo.className = "profile-item";
-        actorInfo.innerHTML = `<img src="${actor.profile_path ? `https://image.tmdb.org/t/p/w200/${actor.profile_path}` : 'no-image-V3.png'}" alt="${actor.name}">
+        actorInfo.innerHTML = `<img src="${actor.profile_path
+                ? `https://image.tmdb.org/t/p/w200/${actor.profile_path}`
+                : "no-image-V3.png"
+            }" alt="${actor.name}">
                                <p>${actor.name}</p>`;
         castProfiles.appendChild(actorInfo);
     });
@@ -48,7 +51,10 @@ function displayCastAndDirectorsProfile(movie) {
         .forEach((director) => {
             let directorInfo = document.createElement("div");
             directorInfo.className = "profile-item";
-            directorInfo.innerHTML = `<img src="${director.profile_path ? `https://image.tmdb.org/t/p/w200/${director.profile_path}` : 'no-image-V3.png'}" alt="${director.name}">
+            directorInfo.innerHTML = `<img src="${director.profile_path
+                    ? `https://image.tmdb.org/t/p/w200/${director.profile_path}`
+                    : "no-image-V3.png"
+                }" alt="${director.name}">
                                   <p>${director.name}</p>`;
             directorsProfiles.appendChild(directorInfo);
         });
