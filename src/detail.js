@@ -28,13 +28,11 @@ function displayRating(rating) {
 function displayCastAndDirectorsProfile(movie) {
     const castProfiles = document.getElementById("castList");
     const directorsProfiles = document.getElementById("directorsList");
-    const defaultImage = "/no-image.png"; // 로컬 이미지 경로 설정 240507 전은겸
 
     movie.credits.cast.forEach((actor) => {
         let actorInfo = document.createElement("div");
         actorInfo.className = "profile-item";
-        let profilePath = actor.profile_path ? `https://image.tmdb.org/t/p/w200/${actor.profile_path}` : defaultImage;
-        actorInfo.innerHTML = `<img src="${profilePath}" alt="${actor.name}" onerror="this.src='${defaultImage}'">
+        actorInfo.innerHTML = `<img src="${actor.profile_path ? `https://image.tmdb.org/t/p/w200/${actor.profile_path}` : 'no-image-V3.png'}" alt="${actor.name}">
                                <p>${actor.name}</p>`;
         castProfiles.appendChild(actorInfo);
     });
@@ -44,9 +42,8 @@ function displayCastAndDirectorsProfile(movie) {
         .forEach((director) => {
             let directorInfo = document.createElement("div");
             directorInfo.className = "profile-item";
-            let profilePath = director.profile_path ? `https://image.tmdb.org/t/p/w200/${director.profile_path}` : defaultImage;
-            directorInfo.innerHTML = `<img src="${profilePath}" alt="${director.name}" onerror="this.src='${defaultImage}'">
-                                      <p>${director.name}</p>`;
+            directorInfo.innerHTML = `<img src="${director.profile_path ? `https://image.tmdb.org/t/p/w200/${director.profile_path}` : 'no-image-V3.png'}" alt="${director.name}">
+                                  <p>${director.name}</p>`;
             directorsProfiles.appendChild(directorInfo);
         });
 }

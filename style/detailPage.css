@@ -101,7 +101,6 @@ main {
     padding: 10px;
     margin: 0;
     box-shadow: 3px 5px 3px #000814;
-
     transition: transform 0.5s ease-in-out;
 }
 
@@ -264,4 +263,9 @@ form {
 
 #movieDetail {
     color: white;
+}
+
+/* 이름 가운데 정렬 05월07일 주현우 작성 */
+.profile-item {
+    text-align: center; /* 가운데 정렬 */
 }
