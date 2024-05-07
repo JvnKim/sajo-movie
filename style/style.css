@@ -111,6 +111,10 @@ body {
   display: flex;
 }
 
+.back-img {
+  background-size: cover; /* 이미지가 전체 화면을 커버하도록 설정 */
+}
+
 /* [2024.05.03 작성자 : 민곤 ] */
 
 #main {
