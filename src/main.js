@@ -69,11 +69,13 @@ function updateSliderWithMovies(movies) {
     const slide = document.createElement("div");
     slide.className = "slide";
     slide.innerHTML = `
-          <img src="https://image.tmdb.org/t/p/w500${movie.poster_path}" alt="${movie.title}" class="slide-img">
+          <img src="https://image.tmdb.org/t/p/w500${movie.poster_path}" alt="${
+      movie.title
+    }" class="slide-img">
           <div class="movie-info">
               <h3>${movie.title}</h3>
               <p>개봉일: ${movie.release_date}</p>
-              <p>평점: ${movie.vote_average}/10</p>
+              <p>평점: ${Math.floor(movie.vote_average)}/10</p>
           </div>
       `;
     slider.appendChild(slide);
