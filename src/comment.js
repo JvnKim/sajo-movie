@@ -14,6 +14,7 @@ function login(movieId, id, password, comments) {
 // [수정자 : 김민곤  (아이디, 패스워드) / (댓글 작성란/ 목록)  2부분은로 분리]
 function createCommentForm() {
   const commentForm = document.createElement("form");
+  commentForm.className = "comment_form";
   commentForm.innerHTML = `
   <div id="inputInfo">
         <input type="text" id="idInput" placeholder="아이디">
