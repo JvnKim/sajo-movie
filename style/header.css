@@ -1,0 +1,99 @@
+#header_main {
+  top: 0;
+  /* position: fixed; */
+  /* 메뉴를 항상 보이는 위치에 고정 */
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 100%;
+  z-index: 1000;
+  /* 다른 요소들 위에 표시 */
+  height: 100px;
+  background-color: #ffc300;
+  /* 조정된 패딩 */
+  padding: 5px 10px;
+  margin: 0;
+}
+#header_main img {
+  width: 100px;
+  height: 70px;
+  margin-right: 40px;
+}
+.home-link {
+  margin-right: 20px;
+  /* 홈 링크와 장르 텍스트 사이 간격 */
+  font-size: 18px;
+  color: #000;
+  text-decoration: none;
+}
+.genre-menu {
+  position: relative;
+  /* 상대적 위치 설정이 필요합니다 */
+  width: 100%;
+  /* 필요에 따라 조정 */
+}
+.genre-trigger {
+  display: inline-block;
+  cursor: pointer;
+  font-size: 18px;
+  color: #000;
+  text-decoration: none;
+  transition: opacity 0.5s ease-out;
+  /* 투명도 변경 애니메이션 적용 */
+  width: auto;
+  /* 자동 너비 설정 */
+  text-align: center;
+  /* 중앙 정렬 */
+}
+.genre-menu:hover .genre-trigger {
+  opacity: 0;
+  visibility: hidden;
+}
+.genre-menu:hover .button-container {
+  visibility: visible;
+  opacity: 1;
+  transform: translateX(-50%) scaleX(1);
+  /* 왼쪽을 기점으로 오른쪽으로만 확장 */
+  max-height: 140px;
+  /* 충분한 높이 설정 */
+}
+.genre-menu:hover .jenre-button {
+  transform: translateX(0);
+}
+/* 운성 */
+/* 2024년 5월 3일 주현우 작성 */
+/* 메인 푸쉬중 주석 처리 header h1 a{color:inherit;/* 부모 요소의 색상 상속 text-decoration:none;/* 밑줄 제거 cursor:pointer;/* 포인터 커서 설정}header{background-color:#0c0c0c;color:#f2613f;padding:20px;text-align:center;}h1{font-size:3em;/* 큰 헤더 폰트 사이즈 설정 text-shadow:2px 2px 4px #000;/* 그림자 효과 추가 letter-spacing:2px;/* 글자 간격 설정 transition:letter-spacing 0.75s ease,color 0.3s ease,font-size 0.3s ease;cursor:pointer;}h1:hover{color:#9b3922;/* 호버 시에 텍스트 색상을 빨간색으로 변경합니다. letter-spacing: 10px;}*/
+/* 2024년 5월 3일 운성 수정 */
+.form {
+  display: flex;
+  align-items: center;
+  margin-left: auto;
+  /* 폼을 오른쪽으로 밀어냄 */
+}
+.search_form {
+  display: flex;
+  align-items: center;
+}
+#search_input {
+  padding: 10px;
+  font-size: 16px;
+  border: 2px solid #ccc;
+  border-right: none;
+  /* 끝 부분 보더 제거 */
+  width: 0;
+  /* 초기 너비 설정 */
+  opacity: 0;
+  /* 투명하게 설정 */
+  transition: width 0.4s ease-in-out, opacity 0.4s ease-in-out;
+  /* 부드러운 트랜지션 효과 */
+  cursor: pointer;
+}
+#search_icon {
+  padding: 8px;
+  font-size: 20px;
+  background-color: transparent;
+  cursor: pointer;
+}
+#search_button {
+  display: none;
+}
