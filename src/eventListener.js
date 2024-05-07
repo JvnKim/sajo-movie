@@ -3,7 +3,7 @@
 // /*
 //   이벤트 처리 하는 함수 작성하는 곳
 // */
-
+//#region  주석들
 // // 장르 버튼 클릭 이벤트 처리 함수
 // export function jenreBtnClickEvent(key, container) {
 //   container.addEventListener("click", () => {
@@ -53,40 +53,42 @@
 //       }
 //     });
 //   });
+//#endregion
 
 // 2024년 5월1일 주현우 작성
-import { fetch_SearchByJenre, fetch_SearchMovies } from './fetch.js';
+import { fetch_SearchByJenre, fetch_SearchMovies } from "./fetch.js";
 
 export function jenreBtnClickEvent(key, container) {
-    container.addEventListener('click', () => {
-        fetch_SearchByJenre(key);
-    });
+  container.addEventListener("click", () => {
+    fetch_SearchByJenre(key);
+  });
 }
 
 export const cardClickEvent = (movie, container) => {
-    container.addEventListener('click', () => {
-        const movieId = movie.id;
-        if (movieId) {
-            const detailPageUrl = `/detail.html?id=${movieId}`;
-            window.location.href = detailPageUrl;
-        } else {
-            console.error('영화 ID가 없습니다.');
-            console.error('영화 ID가 없습니다.'); // 예외 처리
-        }
-    });
+  container.addEventListener("click", () => {
+    const movieId = movie.id;
+    if (movieId) {
+      const detailPageUrl = `/detail.html?id=${movieId}`;
+      window.location.href = detailPageUrl;
+    } else {
+      console.error("영화 ID가 없습니다.");
+      console.error("영화 ID가 없습니다."); // 예외 처리
+    }
+  });
 };
 
 // 영화 카드를 클릭했을 때 상세 내용 페이지로 이동하는 함수
-document.querySelectorAll('.movie-card').forEach((card) => {
-    card.addEventListener('click', () => {
-        const movieId = card.dataset.movieId;
-        const detailPageUrl = `/detail.html?id=${movieId}`;
-        window.location.href = detailPageUrl;
-    });
+document.querySelectorAll(".movie-card").forEach((card) => {
+  card.addEventListener("click", () => {
+    const movieId = card.dataset.movieId;
+    const detailPageUrl = `/detail.html?id=${movieId}`;
+    window.location.href = detailPageUrl;
+  });
 });
 
 // 검색 폼을 관리하는 함수
 export function handleSearch() {
+
     const form = document.querySelector('.search_form');
     const input = document.getElementById('search_input');
     const searchIcon = document.getElementById('search_icon');
@@ -138,15 +140,15 @@ export function handleSearch() {
 }
 
 export function handleMovieCardClick() {
-    document.querySelectorAll('.movie-card').forEach((card) => {
-        card.addEventListener('click', (event) => {
-            const movieId = event.currentTarget.dataset.movieId;
-            if (movieId) {
-                const detailPageUrl = `/detail.html?id=${movieId}`;
-                window.location.href = detailPageUrl;
-            } else {
-                console.error('영화 ID가 없습니다.');
-            }
-        });
+  document.querySelectorAll(".movie-card").forEach((card) => {
+    card.addEventListener("click", (event) => {
+      const movieId = event.currentTarget.dataset.movieId;
+      if (movieId) {
+        const detailPageUrl = `/detail.html?id=${movieId}`;
+        window.location.href = detailPageUrl;
+      } else {
+        console.error("영화 ID가 없습니다.");
+      }
     });
+  });
 }
