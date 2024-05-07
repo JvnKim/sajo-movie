@@ -25,8 +25,8 @@ async function fetchMovieDetails() {
 // 별점 표시 함수
 function displayRating(rating) {
   const ratingElement = document.getElementById("rating");
-  const stars = "⭐️".repeat(rating);
-  const average = rating.toFixed(2);
+  const stars = "⭐️".repeat(Math.floor(rating / 2));
+  const average = (rating / 2).toFixed(2);
   ratingElement.textContent = `평점: ${average} ${stars}`;
 }
 

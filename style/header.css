@@ -15,6 +15,7 @@
   margin: 0;
 
   overflow: hidden;
+  font-size: 25px;
 }
 #header_main img {
   width: 100px;
@@ -24,7 +25,7 @@
 .home-link {
   margin-right: 20px;
   /* 홈 링크와 장르 텍스트 사이 간격 */
-  font-size: 18px;
+
   color: #000;
   text-decoration: none;
 }
@@ -37,7 +38,6 @@
 .genre-trigger {
   display: inline-block;
   cursor: pointer;
-  font-size: 18px;
   color: #000;
   text-decoration: none;
   transition: opacity 0.5s ease-out;
@@ -70,6 +70,7 @@
   display: flex;
   align-items: center;
   margin-left: auto;
+  margin-right: 30px;
   /* 폼을 오른쪽으로 밀어냄 */
 }
 .search_form {
@@ -89,6 +90,10 @@
   transition: width 0.4s ease-in-out, opacity 0.4s ease-in-out;
   /* 부드러운 트랜지션 효과 */
   cursor: pointer;
+
+  font-family: "Jua", Arial, sans-serif;
+  font-weight: 400;
+  font-style: normal;
 }
 #search_icon {
   padding: 8px;
@@ -98,4 +103,28 @@
 }
 #search_button {
   display: none;
+}
+
+/* 2024.5.3 운성 장르 버튼 수정 */
+.jenre-button {
+  padding: 5px 10px;
+  margin: 1px;
+  display: inline-block;
+  border-radius: 20px;
+  border: 2px solid transparent;
+  color: #001d3d;
+  background: linear-gradient(145deg, #ff7a00, #ffd60a);
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  background-clip: padding-box;
+
+  font-family: "Jua", Arial, sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 15px;
+}
+
+.jenre-button:hover {
+  border-color: rgba(255, 255, 255, 0.5);
 }

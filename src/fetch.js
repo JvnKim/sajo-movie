@@ -85,12 +85,14 @@ async function updateSliderWithMovies(movies) {
 
     slide.innerHTML = `
           <div class="slide-content">
-              <img src="https://image.tmdb.org/t/p/w500${movie.poster_path}" alt="${movie.title}" class="slide-img">
+              <img src="https://image.tmdb.org/t/p/w500${
+                movie.poster_path
+              }" alt="${movie.title}" class="slide-img">
               <div class="movie-info">
               ${iframePart}
                   <h3>${movie.title}</h3>
                   <p>개봉일: ${movie.release_date}</p>
-                  <p>평점: ${movie.vote_average} / 10</p>
+                  <p>평점: ${movie.vote_average.toFixed(2)} / 10</p>
                   
               </div>
           </div>
@@ -112,7 +114,7 @@ function startSlider() {
       slides[currentIndex].style.display = "none"; // 현재 슬라이드 숨김
       currentIndex = (currentIndex + 1) % slides.length;
       slides[currentIndex].style.display = "block"; // 다음 슬라이드 표시
-    }, 180000); // 3분마다 슬라이드 변경
+    }, 15000); // 3분마다 슬라이드 변경
   }
 }
 
