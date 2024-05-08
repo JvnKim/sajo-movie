@@ -44,9 +44,14 @@ body {
 
 #mainBody {
   /*메인 바디 */
-
+  background: linear-gradient(
+    to bottom,
+    var(--YaleBlue),
+    var(--OxfordBlue),
+    var(--RichBlack)
+  );
   color: var(--background-color);
-  margin: 10px auto 0 10px;
+  margin-left: 1;
 }
 /* 영화 상세 정보 스타일 */
 #movieDetail {
@@ -58,7 +63,7 @@ body {
 
 #poster {
   /* 포스터 이미지가 나머지 내용과 같은 공간을 차지하도록 함 */
-  max-width: 380px;
+  max-width: 300px;
   /* 포스터 이미지의 최대 너비를 제한 */
 }
 
@@ -68,6 +73,7 @@ body {
   padding-left: 20px;
   /* 텍스트와 이미지 사이의 공간을 추가 */
 }
+
 #movieDataContainer {
   max-width: 750px;
 }
@@ -94,6 +100,7 @@ body {
   width: 100%;
   height: 80%;
 }
+
 #castList,
 #directorsList {
   display: flex;
@@ -128,8 +135,6 @@ body {
   border-radius: 2px;
   padding: 10px;
   margin: 0;
-  box-shadow: 3px 5px 3px #000814;
-  transition: transform 0.5s ease-in-out;
 }
 
 #cast span,
@@ -153,13 +158,13 @@ body {
 .scrolling-wrapper h3 {
   margin: 20px 28px 10px 0;
   color: var(--Gold);
-  font-size: 40px;
+  font-size: 35px;
 }
 
 /* 
 각 출연진 및 감독 공통 스타일 */
 .scrolling-wrapper > div {
-  background-color: rgba(0, 29, 61, 0.5);
+  background-color: #003566;
   height: 20rem;
   display: flex;
   align-items: center;
@@ -175,7 +180,7 @@ body {
 
 /* 댓글 입력 폼 스타일*/
 .comment_form {
-  background-color: rgba(0, 29, 61, 0.5);
+  background-color: rgba(0, 8, 20);
   max-width: 100%;
   margin: 20px auto;
   padding: 20px;
@@ -189,7 +194,6 @@ body {
   font-family: "Jua", Arial, sans-serif;
   font-weight: 400;
   font-style: normal;
-
   width: 15rem;
   padding: 10px;
   margin-bottom: 10px;
@@ -236,12 +240,13 @@ body {
 
 /* 댓글 리스트 컨테이너 스타일 */
 .commentslist {
-  background-color: rgba(0, 29, 61, 0.5);
+  background-color: #2a2a2a;
   /* 어두운 배경 */
   padding: 20px;
   border-radius: 8px;
   /* 모서리를 둥글게 */
   margin: 20px 0;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   /* 그림자 효과 */
 }
 
@@ -249,7 +254,6 @@ body {
   color: #ffcc00;
   /* 제목 색상 */
   margin-bottom: 16px;
-  font-size: 30px;
 }
 
 .commentslist ul {
@@ -259,7 +263,7 @@ body {
 }
 
 .commentslist li {
-  background-color: var(--YaleBlue);
+  background-color: #333333;
   /* 댓글 배경 */
   color: #ffffff;
   /* 댓글 텍스트 색상 */
@@ -275,12 +279,9 @@ body {
 }
 
 .commentslist button {
-  font-family: "Jua", Arial, sans-serif;
-  font-weight: 400;
-  font-style: normal;
-  background-color: var(--Gold);
+  background-color: #ff5555;
   /* 삭제 버튼 배경 색상 */
-  color: var(--RichBlack);
+  color: white;
   border: none;
   cursor: pointer;
   /* 마우스 오버 시 포인터 변경 */
@@ -297,4 +298,9 @@ body {
 /* 이름 가운데 정렬 05월07일 주현우 작성 */
 .profile-item {
   text-align: center; /* 가운데 정렬 */
+}
+
+#header_main img {
+  width: 100px;
+  height: auto;
 }

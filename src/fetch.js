@@ -40,15 +40,6 @@ export async function fetch_Movies() {
 }
 
 async function fetchMovieTrailers(movieId) {
-  // const trailerOptions = {
-  //   method: "GET",
-  //   headers: {
-  //     accept: "application/json",
-  //     Authorization:
-  //       "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI0ZTUxMjBmOGFmMWJkNmQ0OGU2Y2E4MDAzYmY2ZjAwNiIsInN1YiI6IjY2MjYzNjVkN2E5N2FiMDE3ZDhmMTc3OCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.y0YvIb-StdqiAR5fgypwYHkV8MLZhbAJ5ygnX7ebCcY",
-  //   },
-  // };
-
   try {
     const response = await fetch(
       `${TMDB_URL}/movie/${movieId}/videos?language=en-US`,

@@ -200,7 +200,6 @@ body {
 
   transition: 0.3s ease-in-out;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  box-shadow: 0 0 15px #faf9f6;
 }
 .card:hover {
   box-shadow: 0 0 20px #ffc300;
@@ -286,8 +285,6 @@ body {
   }
 }
 
-/* Bottom*/
-#bottom {
-  background-color: #c0c0c0;
-  height: 50px;
+.bottom {
+  text-align: right;
 }
