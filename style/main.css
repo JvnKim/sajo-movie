@@ -297,3 +297,7 @@ body {
     transform: rotate(360deg);
   }
 }
+
+.bottom {
+  text-align: right;
+}
