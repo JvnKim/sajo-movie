@@ -11,7 +11,7 @@ import { cardClickEvent, genreBtnClickEvent } from "./eventListener.js";
 // 영화 카드를 생성하는 함수
 export function display_MovieCard(movie) {
   const movieDiv = document.createElement("div");
-  movieDiv.className = "swiper-slide";
+  movieDiv.className = "card";
   movieDiv.id = "card";
   movieDiv.innerHTML = `
     <div class="card-image">

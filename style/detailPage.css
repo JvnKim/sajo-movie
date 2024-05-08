@@ -37,15 +37,19 @@ body {
   font-family: "Jua", Arial, sans-serif;
   font-weight: 400;
   font-style: normal;
-
+  /* body의 마진을 제거 */
+  width: 100%;
+  margin: 0;
   overflow-x: hidden;
-  background-color: var(--OxfordBlue);
-  color: #faf9f6;
+
+  /*메인 바디 */
+  background: #003566;
 }
 
 #mainBody {
   /*메인 바디 */
   margin-left: 30px;
+  color: #faf9f6;
 }
 /* 영화 상세 정보 스타일 */
 #movieDetail {
