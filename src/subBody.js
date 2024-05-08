@@ -2,17 +2,17 @@
 
 // 검색 결과를 받아서 화면에 표시하는 함수
 function displaySearchResults(results) {
-    const searchResultsDiv = document.getElementById('searchResults');
-    searchResultsDiv.innerHTML = ''; // 이전 검색 결과를 지움
+    const subBodyDiv = document.getElementById('subBody');
+    subBodyDiv.innerHTML = ''; // 이전 검색 결과를 지움
 
     if (results.length === 0) {
-        searchResultsDiv.innerHTML = '<p>No results found</p>';
+        subBodyDiv.innerHTML = '<p>No results found</p>';
     } else {
         results.forEach(result => {
             // 각 결과를 표시하는 코드를 작성
             const resultDiv = document.createElement('div');
             resultDiv.innerHTML = `<p>${result}</p>`;
-            searchResultsDiv.appendChild(resultDiv);
+            subBodyDiv.appendChild(resultDiv);
         });
     }
 }
@@ -33,3 +33,13 @@ function initialize() {
 
 // 페이지 로드 시 초기화 함수 실행
 initialize();
+
+// 검색 함수
+function search(event) {
+    event.preventDefault(); // 폼 제출 기본 동작 방지
+    const keyword = document.getElementById('search_input').value;
+    performSearch(keyword);
+    
+    // 검색한 키워드를 URL에 반영
+    history.pushState(null, null, `/?q=${encodeURIComponent(keyword)}`);
+}

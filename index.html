@@ -75,15 +75,17 @@
     </footer>
     <div id="subBody"></div>
 
-    <script src="/src/subBody.js"></script>
+    <!-- subBody.html을 불러오는 스크립트 -->
+    <script src="./src/subBody.js"></script>
     <script>
+        // 검색 함수
         function search(event) {
             event.preventDefault(); // 폼 제출 기본 동작 방지
             const keyword = document.getElementById('search_input').value;
             performSearch(keyword);
+            
             // 검색한 키워드를 URL에 반영
             history.pushState(null, null, `/?q=${encodeURIComponent(keyword)}`);
         }
     </script>
-</body>
 </html>
