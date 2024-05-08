@@ -37,7 +37,7 @@ body {
     overflow-x: hidden;
 
     /*메인 바디 */
-    background: #002952;
+    background: #003566;
 }
 
 #mainbody {
@@ -105,7 +105,7 @@ body {
     flex: 1;
     /* 정보창에 유연한 크기 할당 */
     padding: 20px;
-    background-color: #002952;
+    background-color: #003566;
     color: white;
     display: flex;
     flex-direction: column;
@@ -152,8 +152,6 @@ body {
 #movieSlider {
     width: 95%;
     margin: 0 auto;
-    background-color: rgb(0, 0, 0, 0.5);
-    box-shadow: 0 0 20px var(--RichBlack);
 }
 
 #movieListSlider {
