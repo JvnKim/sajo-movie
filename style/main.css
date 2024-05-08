@@ -235,13 +235,13 @@ body {
   text-align: left;
   transition: opacity 0.5s;
   opacity: 0;
+  font-size: 25px;
 }
 .card-content h2 {
   font-size: 48px;
 }
 .card:hover .card-content {
   opacity: 1;
-  font-size: 25px;
 }
 
 /* 2024.5.3 운성 버튼 수정 */
