@@ -30,7 +30,7 @@ function displayRating(rating) {
     ratingElement.textContent = `평점: ${average} ${stars}`;
 }
 
-// 출연진 및 감독의 프로필 이미지와 추가 정보 표시 // 240503 전은겸 수정 및 추가
+// 출연진 및 감독의 프로필 이미지와 추가 정보 표시 
 function displayCastAndDirectorsProfile(movie) {
     const castProfiles = document.getElementById("castList");
     const directorsProfiles = document.getElementById("directorsList");
