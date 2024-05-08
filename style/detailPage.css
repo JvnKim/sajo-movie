@@ -39,16 +39,17 @@ body {
   font-style: normal;
   margin: 0;
   overflow-x: hidden;
-}
-
-#mainbody {
-  /*메인 바디 */
   background: linear-gradient(
     to bottom,
     var(--YaleBlue),
     var(--OxfordBlue),
     var(--RichBlack)
   );
+}
+
+#mainbody {
+  /*메인 바디 */
+
   color: var(--background-color);
 }
 /* 영화 상세 정보 스타일 */
@@ -60,9 +61,8 @@ body {
 }
 
 #poster {
-  flex: 1;
   /* 포스터 이미지가 나머지 내용과 같은 공간을 차지하도록 함 */
-  max-width: 200px;
+  max-width: 380px;
   /* 포스터 이미지의 최대 너비를 제한 */
 }
 
@@ -71,6 +71,9 @@ body {
   /* 제목, 장르, 평점이 포스터 이미지보다 더 많은 공간을 차지하도록 함 */
   padding-left: 20px;
   /* 텍스트와 이미지 사이의 공간을 추가 */
+}
+#movieDataContainer {
+  max-width: 500px;
 }
 
 #castList,
@@ -138,12 +141,11 @@ body {
 /* 
 각 출연진 및 감독 공통 스타일 */
 .scrolling-wrapper > div {
-  background-color: #003566;
+  background-color: rgba(0, 29, 61, 0.5);
   height: 20rem;
   display: flex;
   align-items: center;
   overflow: auto;
-  box-shadow: 0 8px 0 var(--RichBlack), 0 16px 0 var(--OxfordBlue);
 }
 .scrolling-wrapper img {
   width: 10rem;
@@ -155,7 +157,7 @@ body {
 
 /* 댓글 입력 폼 스타일*/
 .comment_form {
-  background-color: rgba(0, 8, 20);
+  background-color: rgba(0, 29, 61, 0.5);
   max-width: 100%;
   margin: 20px auto;
   padding: 20px;
@@ -166,6 +168,10 @@ body {
 
 #inputInfo input,
 #inputText textarea {
+  font-family: "Jua", Arial, sans-serif;
+  font-weight: 400;
+  font-style: normal;
+
   width: 15rem;
   padding: 10px;
   margin-bottom: 10px;
@@ -181,6 +187,10 @@ body {
 }
 
 #inputText button {
+  font-family: "Jua", Arial, sans-serif;
+  font-weight: 400;
+  font-style: normal;
+
   border: none;
   border-radius: 2.5rem;
 
@@ -208,13 +218,12 @@ body {
 
 /* 댓글 리스트 컨테이너 스타일 */
 .commentslist {
-  background-color: #2a2a2a;
+  background-color: rgba(0, 29, 61, 0.5);
   /* 어두운 배경 */
   padding: 20px;
   border-radius: 8px;
   /* 모서리를 둥글게 */
   margin: 20px 0;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   /* 그림자 효과 */
 }
 
@@ -222,6 +231,7 @@ body {
   color: #ffcc00;
   /* 제목 색상 */
   margin-bottom: 16px;
+  font-size: 30px;
 }
 
 .commentslist ul {
@@ -231,7 +241,7 @@ body {
 }
 
 .commentslist li {
-  background-color: #333333;
+  background-color: var(--YaleBlue);
   /* 댓글 배경 */
   color: #ffffff;
   /* 댓글 텍스트 색상 */
@@ -247,9 +257,12 @@ body {
 }
 
 .commentslist button {
-  background-color: #ff5555;
+  font-family: "Jua", Arial, sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  background-color: var(--Gold);
   /* 삭제 버튼 배경 색상 */
-  color: white;
+  color: var(--RichBlack);
   border: none;
   cursor: pointer;
   /* 마우스 오버 시 포인터 변경 */
