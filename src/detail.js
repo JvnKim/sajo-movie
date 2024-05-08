@@ -67,7 +67,7 @@ function displayCastAndDirectorsProfile(movie) {
     actorInfo.innerHTML = `<img src="${
       actor.profile_path
         ? `https://image.tmdb.org/t/p/w200/${actor.profile_path}`
-        : "images/no-image-V3.png"
+        : "no-image-V3.png"
     }" alt="${actor.name}">
                                <p>${actor.name}</p>`;
     castProfiles.appendChild(actorInfo);
@@ -81,7 +81,7 @@ function displayCastAndDirectorsProfile(movie) {
       directorInfo.innerHTML = `<img src="${
         director.profile_path
           ? `https://image.tmdb.org/t/p/w200/${director.profile_path}`
-          : "images/no-image-V3.png"
+          : "no-image-V3.png"
       }" alt="${director.name}">
                                   <p>${director.name}</p>`;
       directorsProfiles.appendChild(directorInfo);
