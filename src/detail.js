@@ -48,22 +48,6 @@ async function fetchMovieTrailers(movieId) {
   }
 }
 
-async function fetchMovieTrailers(movieId) {
-  try {
-    const response = await fetch(
-      `${TBDB_URL}/movie/${movieId}/videos?language=en-US`,
-      options
-    );
-    const data = await response.json();
-    const trailer = data.results.find(
-      (video) => video.type === "Trailer" && video.site === "YouTube"
-    );
-    return trailer ? trailer.key : null; // YouTube video key if trailer exists
-  } catch (error) {
-    console.error("Error fetching trailers:", error);
-    return null;
-  }
-}
 
 // 별점 표시 함수
 function displayRating(rating) {
