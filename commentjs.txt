@@ -1,0 +1,54 @@
+comment.js 설명서 2024-05-02
+
+function login
+    // 각각 할당된 페이지의 id를 통해 사용자 정보를 로컬에 저장.
+
+function createCommentForm
+    // form 태그로 innerHTML에 있는 HTML를 만들어줌.
+
+function deleteComment
+    // const movieData : 로컬 스토리지에서 해당 영화의 데이터를 가져와 userData에 할당.
+    // const Comments : movieData 객체에서 comments 배열을 추출하고, 만약 존재하지 않으면 빈 배열로 초기화. 
+    // splice : comments 배열에서 주어진 인덱스의 댓글을 삭제.
+    // setItem : 수정된 comments를 포함한 userData를 다시 로컬 스토리지에 저장.
+    // reload : 페이지를 새로고침하여 변경된 데이터를 반영.
+
+function createCommentContainer
+    // const movieData : 로컬 스토리지에서 해당 영화의 데이터를 가져와 movieData에 할당.
+
+    // const comments : movieData 객체에서 comments 배열을 추출하고, 만약 존재하지 않으면 빈 배열로 초기화.
+    
+    // const commentContainer : 새로운 div 엘리먼트를 생성하고 comment-container 클래스를 추가.
+    
+    // const commentElement : 새로운 div 엘리먼트를 생성, comment 클래스를 추가
+    
+    // const commentForm : createCommentContainer 함수를 호출하여 댓글 작성 폼을 생성, commentElement에 추가
+    
+    // const commentFormElement : commentForm의 submit 이벤트 리스너를 추가
+        // > if : 아이디 패스워드 댓글을 입력했는지 확인
+    // const newComment : 새로운 댓글 객체를 생성
+    // const newComments : 새로운 댓글을 기존 댓글 배열에 추가
+    // login : login 함수를 호출하여 새로운 로컬 스토리지에 저장하고
+    // reload : 페이지를 새로고침.
+
+    // const previousCommentsElements : 이전에 작성된 댓글을 보여줌
+    // if : 이전 댓글이 존재하는 경우, 각 댓글을 나타내는 리스트를 생성
+        // > const commentItem : 각 댓글을 리스트 아이템으로 생성
+        // > textContent : 댓글 텍스트와 작성자를 리스트 아이템에 추가
+    
+        // const deleteButton : 댓글 삭제 버튼을 생성하고 이를 클릭할 때 deleteComment 함수를 호출
+        // appendChild > deleteButton : 댓글 아이템에 삭제 버튼을 추가
+        // appendChild > commentItem : 리스트 아이템을 리스트에 추가
+    // previousCommentsElement > appendChild : 이전 댓글 리스트를 이전 댓글 요소에 추가
+    // else : 이전에 작성된 댓글이 없는 경우, 해당 메시지를 보여줌
+
+    // previousCommentsElement > style > color : 이전 댓글 요소의 텍스트 색상을 흰색으로 설정
+    //commentContainer > appendChild : 이전 댓글 요소를 commentContainer에 추가
+    // return : 생성된 댓글 컨테이너를 반환
+
+document > DOMContentLoa
+    // addEventListener : 문서가 완전히 로드됐을때 실행되는 이벤트 리스너
+    // const urlParams : 현재 URL의 쿼리 파라미터를 가져옴
+    // const movieId : 쿼리 파라미터에서 id 값을 가져옴
+    // const commentContainer : 현재 id의 URL에 댓글 컨테이너 생성
+    // appendChild : 댓글 컨테이너를 문서의 body에 추가
