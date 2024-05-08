@@ -1,63 +1,76 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>SAJO MOVIE</title>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>SAJO MOVIE</title>
 
-    <link rel="stylesheet" href="./style/main.css" />
-    <link rel="stylesheet" href="./style/header.css" />
-    <!-- Font 파일 링크-->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Jua&display=swap"
-      rel="stylesheet"
-    />
-    <script type="module" src="./src/main.js"></script>
-  </head>
-  <!-- 2024년 5월 3일 운성 수정 -->
-  <body>
-    <header>
-      <div id="header_main">
-        <img src="https://ifh.cc/g/tmM9pW.png" alt="Your Image Description" />
-        <a href="/" class="home-link">홈</a>
-        <div class="genre-menu">
-          <span class="genre-trigger">장르</span>
-          <div class="button-container" id="genres_buttons">
-            <!-- 장르 목록이 들어갈 자리-->
-          </div>
-        </div>
-        <div id="form" class="form">
-          <form class="search_form">
-            <input
-              type="text"
-              id="search_input"
-              placeholder="영화 제목을 검색해 보세요"
-            />
-            <label for="search_input" id="search_icon">&#128269;</label>
-            <button type="submit" id="search_button">검색</button>
-          </form>
-        </div>
-      </div>
-    </header>
+        <link rel="stylesheet" href="./style/main.css" />
+        <link rel="stylesheet" href="./style/header.css" />
+        <!-- Font 파일 링크-->
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link href="https://fonts.googleapis.com/css2?family=Jua&display=swap" rel="stylesheet" />
+        <script type="module" src="./src/main.js"></script>
+    </head>
+    <!-- 2024년 5월 8일 운성 수정 -->
+    <body>
+        <header>
+            <div id="header_main">
+                <img src="https://ifh.cc/g/tmM9pW.png" alt="Your Image Description" />
+                <a href="/" class="home-link">홈</a>
+                <div class="genre-menu">
+                    <span class="genre-trigger">장르</span>
+                    <div class="button-container" id="genres_buttons">
+                        <!-- 장르 목록이 들어갈 자리-->
+                    </div>
+                </div>
+                <div id="form" class="form">
+                    <form class="search_form">
+                        <input type="text" id="search_input" placeholder="영화 제목을 검색해 보세요" />
+                        <label for="search_input" id="search_icon">&#128269;</label>
+                        <button type="submit" id="search_button">검색</button>
+                    </form>
+                </div>
+            </div>
+        </header>
 
-    <div id="mainbody">
-      <div class="slider" id="movieSlider">
-        <!-- 슬라이더 내용은 JavaScript를 통해 동적으로 삽입됩니다 -->
-      </div>
-      <!-- 2024년 5월 3일 운성 수정 -->
-      <div id="spinner-container">
-        <!-- 스피너 들어갈 자리-->
-      </div>
-      <div id="movieListContainer">
-        <h2 id="listTitle">최신영화</h2>
+        <div id="mainbody">
+            <div class="slider" id="movieSlider">
+                <!-- 슬라이더 내용은 JavaScript를 통해 동적으로 삽입됩니다 -->
+            </div>
 
-        <div id="movieListSlider">
-          <div id="latestMovies" class="latestMovies">
-            <!-- 영화 카드가 들어갈 자리-->
-          </div>
+            <button class="prev">&#10094;</button>
+            <!-- 슬라이드 이미지 또는 컨텐츠가 들어갈 부분 -->
+            <button class="next">&#10095;</button>
+
+            <!-- 2024년 5월 8일 운성 수정 -->
+            <div id="spinner-container">
+                <!-- 스피너 들어갈 자리-->
+            </div>
+            <div id="movieListContainer">
+                <h2 id="listTitle">최신영화</h2>
+
+                <div id="movieListSlider">
+                    <div id="latestMovies" class="latestMovies">
+                        <!-- 영화 카드가 들어갈 자리-->
+                    </div>
+                </div>
+                <h2 id="listTitle">SF</h2>
+                <div id="movieListSlider">
+                    <div id="Fantasy"></div>
+                </div>
+                <h2 id="listTitle">액션</h2>
+                <div id="movieListSlider">
+                    <div id="Action"></div>
+                </div>
+                <h2 id="listTitle">코미디</h2>
+                <div id="movieListSlider">
+                    <div id="Comedy"></div>
+                </div>
+            </div>
         </div>
+<<<<<<< HEAD
         <h2 id="listTitle">SF</h2>
         <div id="movieListSlider">
           <div id="Fantasy"></div>
@@ -77,4 +90,8 @@
     </div>
     <div id="subbody"></div>
   </body>
+=======
+        <div id="subbody"></div>
+    </body>
+>>>>>>> 0bc222bbc1384132231605acb0e9f7d77d9419f2
 </html>
