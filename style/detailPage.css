@@ -268,7 +268,14 @@ body {
   text-align: center; /* 가운데 정렬 */
 }
 
+<<<<<<< HEAD
 #header_main img {
   width: 100px;
   height: auto;
 }
+=======
+#header_main img{
+  width: 100px;
+  height: auto;
+}
+>>>>>>> c899523f62203ff514c71531cf5eddd5a2da01d7
