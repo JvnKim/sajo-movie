@@ -39,6 +39,13 @@ body {
   font-style: normal;
   margin: 0;
   overflow-x: hidden;
+<<<<<<< HEAD
+}
+
+#mainBody {
+  /*메인 바디 */
+=======
+>>>>>>> 0bc222bbc1384132231605acb0e9f7d77d9419f2
   background: linear-gradient(
     to right,
     var(--YaleBlue),
