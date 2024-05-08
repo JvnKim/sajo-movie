@@ -42,12 +42,6 @@ body {
 
 #mainBody {
   margin-top: 20px;
-  background: linear-gradient(
-    to bottom,
-    var(--YaleBlue),
-    var(--OxfordBlue),
-    var(--RichBlack)
-  );
 }
 /* 2024.05.08 운성 슬라이드 버튼 추가 */
 .prev,
@@ -89,12 +83,6 @@ body {
 
 /* 민곤 작성 */
 #subBody {
-  background: linear-gradient(
-    to bottom,
-    var(--YaleBlue),
-    var(--OxfordBlue),
-    var(--RichBlack)
-  );
   display: grid;
   height: 100%;
   padding-top: 1.5rem;
@@ -213,7 +201,6 @@ body {
 
   transition: 0.3s ease-in-out;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  box-shadow: 0 0 15px #faf9f6;
 }
 .card:hover {
   box-shadow: 0 0 20px #ffc300;
