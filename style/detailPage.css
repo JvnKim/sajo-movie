@@ -43,7 +43,7 @@ body {
   overflow-x: hidden;
 
   /*메인 바디 */
-  background: #003566;
+  background-color: var(--OxfordBlue);
 }
 
 #mainBody {
@@ -133,7 +133,6 @@ body {
 
 #cast div,
 #directors div {
-  background-color: rgba(0, 29, 61, 0.5);
   border-radius: 2px;
   padding: 10px;
   margin: 0;
