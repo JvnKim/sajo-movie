@@ -42,12 +42,6 @@ body {
 
 #mainBody {
   margin-top: 20px;
-  background: linear-gradient(
-    to bottom,
-    var(--YaleBlue),
-    var(--OxfordBlue),
-    var(--RichBlack)
-  );
 }
 /* 2024.05.08 운성 슬라이드 버튼 추가 */
 .prev,
@@ -89,12 +83,6 @@ body {
 
 /* 민곤 작성 */
 #subBody {
-  background: linear-gradient(
-    to bottom,
-    var(--YaleBlue),
-    var(--OxfordBlue),
-    var(--RichBlack)
-  );
   display: grid;
   height: 100%;
   padding-top: 1.5rem;
@@ -296,4 +284,10 @@ body {
   100% {
     transform: rotate(360deg);
   }
+}
+
+/* Bottom*/
+#bottom {
+  background-color: #c0c0c0;
+  height: 50px;
 }
