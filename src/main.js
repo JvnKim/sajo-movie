@@ -56,6 +56,29 @@ function updateSliderWithMovies(movies) {
 
 // 운성
 
+// 페이지를 맨 위로 스크롤하는 함수
+function scrollTopFunction() {
+  document.body.scrollTop = 0; // Safari
+  document.documentElement.scrollTop = 0;
+}
+
+// 위로 스크롤 버튼 요소를 가져옵니다.
+var scrollTopBtn = document.querySelector(".scrollTop");
+
+// 스크롤 이벤트를 추가하여 버튼이 스크롤되면 표시되도록 합니다.
+window.addEventListener("scroll", function () {
+  if (window.pageYOffset > 20) {
+    scrollTopBtn.style.display = "block";
+  } else {
+    scrollTopBtn.style.display = "none";
+  }
+});
+
+// 위로 스크롤 버튼을 클릭했을 때 페이지가 맨 위로 스크롤되도록 합니다.
+scrollTopBtn.addEventListener("click", function () {
+  scrollTopFunction();
+});
+
 //리다이렉트 함수
 function handleRedirect(container) {
   document.addEventListener("DOMContentLoaded", function () {
