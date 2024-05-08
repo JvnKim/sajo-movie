@@ -42,15 +42,20 @@ body {
 
 #mainBody {
   margin-top: 20px;
+  z-index: 1;
 }
 /* 2024.05.08 운성 슬라이드 버튼 추가 */
+.topSlider {
+  position: relative;
+}
+
 .prev,
 .next {
   cursor: pointer;
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  z-index: 3;
+  z-index: 10;
   background-color: rgba(255, 255, 255, 0); /* 배경색 투명 */
   color: #ffc300;
   font-size: 50px;
@@ -93,7 +98,7 @@ body {
 }
 
 .slide {
-  position: relative;
+  /* position: relative; */
   display: flex;
   /* Flexbox를 사용하여 요소를 수평 배치 */
   flex-direction: row;
@@ -103,6 +108,7 @@ body {
   /* 슬라이드의 높이를 뷰포트 높이의 100%로 설정 */
   padding: 0;
   margin: 0;
+  z-index: 1;
 }
 .movie-info {
   flex: 1;
@@ -154,7 +160,8 @@ body {
 }
 #movieSlider {
   width: 95%;
-  margin: 0 auto;
+  margin: auto;
+  z-index: 1;
 }
 
 #movieListSlider {
