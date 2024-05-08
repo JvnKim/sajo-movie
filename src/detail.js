@@ -1,7 +1,7 @@
 // URL에서 영화 ID 추출
 const urlParams = new URLSearchParams(window.location.search);
 const movieId = urlParams.get("id");
-const TBDB_URL = "https://api.themoviedb.org/3";
+const TMDB_URL = "https://api.themoviedb.org/3";
 const options = {
   method: "GET",
   headers: {
@@ -34,7 +34,7 @@ async function fetchMovieDetails() {
 async function fetchMovieTrailers(movieId) {
   try {
     const response = await fetch(
-      `${TBDB_URL}/movie/${movieId}/videos?language=en-US`,
+      `${TMDB_URL}/movie/${movieId}/videos?language=en-US`,
       options
     );
     const data = await response.json();
