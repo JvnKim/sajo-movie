@@ -63,8 +63,6 @@
         <h2 id="listTitle">최신영화</h2>
         <div id="movieListSlider" class="swiper">
           <div id="latestMovies" class="swiper-wrapper"></div>
-          <div class="swiper-button-next"></div>
-          <div class="swiper-button-prev"></div>
         </div>
         <h2 id="listTitle">SF</h2>
         <div id="movieListSlider">
@@ -102,20 +100,6 @@
         // 검색한 키워드를 URL에 반영
         history.pushState(null, null, `/?q=${encodeURIComponent(keyword)}`);
       }
-    </script>
-    <script>
-      //swiper 초기화
-      const swiper = new Swiper(".swiper", {
-        // Optional parameters
-        direction: "vertical",
-        loop: true,
-
-        // Navigation arrows
-        navigation: {
-          nextEl: ".swiper-button-next",
-          prevEl: ".swiper-button-prev",
-        },
-      });
     </script>
   </body>
 </html>
