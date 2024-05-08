@@ -148,19 +148,19 @@ body {
   width: 10rem;
   height: auto;
   border-radius: 10%;
-  box-shadow: 3px 5px 3px rgba(0, 8, 20, 0.5);
+  box-shadow: 3px 5px 3px #003566;
   margin-left: 1px;
 }
 
 /* 댓글 입력 폼 스타일*/
 .comment_form {
-  background-color: rgba(0, 8, 20);
+  background-color: #001d3d;
   max-width: 100%;
   margin: 20px auto;
   padding: 20px;
-  border: 1px solid var(--RichBlack);
+  border: 1px solid #001d3d;
   border-radius: 5px;
-  box-shadow: 3px 5px 3px var(--RichBlack);
+  box-shadow: 3px 5px 3px #001d3d;
 }
 
 #inputInfo input,
@@ -207,7 +207,7 @@ body {
 
 /* 댓글 리스트 컨테이너 스타일 */
 .commentslist {
-  background-color: #2a2a2a;
+  background-color: var(--OxfordBlue);
   /* 어두운 배경 */
   padding: 20px;
   border-radius: 8px;
@@ -230,7 +230,6 @@ body {
 }
 
 .commentslist li {
-  background-color: #333333;
   /* 댓글 배경 */
   color: #ffffff;
   /* 댓글 텍스트 색상 */
