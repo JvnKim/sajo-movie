@@ -26,7 +26,7 @@
   background: #ffd60a; /* 스크롤바를 호버했을 때의 색상 */
 }
 
-/* 2024년 5월 3일 운성 수정 */
+/* 2024년 5월 8일 운성 수정 */
 body {
   font-family: "Jua", Arial, sans-serif;
   font-weight: 400;
@@ -35,10 +35,13 @@ body {
   width: 100%;
   margin: 0;
   overflow-x: hidden;
+
   /*메인 바디 */
-  background: #000814;
+  background: #003566;
 }
-#mainbody {
+
+#mainBody {
+  margin-top: 20px;
   background: linear-gradient(
     to bottom,
     var(--YaleBlue),
@@ -46,8 +49,46 @@ body {
     var(--RichBlack)
   );
 }
+/* 2024.05.08 운성 슬라이드 버튼 추가 */
+.prev,
+.next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 9999;
+  background-color: rgba(255, 255, 255, 0); /* 배경색 투명 */
+  color: #ffc300;
+  font-size: 50px;
+  padding: 10px 0; /* 상하 패딩만 유지, 좌우 패딩 제거 */
+  border: none; /* 테두리 제거 */
+  opacity: 0.8;
+  transition: all 0.3s ease;
+}
+
+.prev:hover,
+.next:hover {
+  opacity: 1; /* 호버 시 투명도 변경 */
+  background-color: rgba(
+    255,
+    255,
+    255,
+    0
+  ); /* 호버 상태에서도 배경색 투명 유지 */
+}
+
+.prev {
+  left: 10px; /* 왼쪽으로부터 10px */
+}
+
+.next {
+  right: 10px; /* 오른쪽으로부터 10px */
+}
+
+/* 운성 */
+
 /* 민곤 작성 */
-#subbody {
+#subBody {
   background: linear-gradient(
     to bottom,
     var(--YaleBlue),
@@ -79,7 +120,7 @@ body {
   flex: 1;
   /* 정보창에 유연한 크기 할당 */
   padding: 20px;
-  background-color: #001d3d;
+  background-color: #003566;
   color: white;
   display: flex;
   flex-direction: column;
@@ -124,8 +165,8 @@ body {
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 #movieSlider {
-  background-color: rgb(0, 0, 0, 0.5);
-  box-shadow: 0 0 20px var(--RichBlack);
+  width: 95%;
+  margin: 0 auto;
 }
 
 #movieListSlider {

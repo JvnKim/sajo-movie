@@ -104,17 +104,36 @@ async function updateSliderWithMovies(movies) {
   startSlider(); // 슬라이더 애니메이션 시작
 }
 
+// 2024.05.08 운성 영화 랜덤 슬라이드 수정
 function startSlider() {
   let slides = document.querySelectorAll(".slide");
   let currentIndex = 0;
   if (slides.length > 0) {
+    let currentIndex = Math.floor(Math.random() * slides.length);
     slides[currentIndex].style.display = "block"; // 첫 번째 슬라이드 표시
 
+    // 슬라이드 변경 주기 설정
     setInterval(() => {
       slides[currentIndex].style.display = "none"; // 현재 슬라이드 숨김
       currentIndex = (currentIndex + 1) % slides.length;
       slides[currentIndex].style.display = "block"; // 다음 슬라이드 표시
-    }, 15000); // 3분마다 슬라이드 변경
+    }, 15000); // 15초마다 슬라이드 변경
+
+    // 버튼 클릭 이벤트 처리
+    const prevButton = document.querySelector(".prev");
+    const nextButton = document.querySelector(".next");
+
+    prevButton.addEventListener("click", () => {
+      slides[currentIndex].style.display = "none"; // 현재 슬라이드 숨김
+      currentIndex = (currentIndex - 1 + slides.length) % slides.length; // 이전 슬라이드 인덱스 계산
+      slides[currentIndex].style.display = "block"; // 이전 슬라이드 표시
+    });
+
+    nextButton.addEventListener("click", () => {
+      slides[currentIndex].style.display = "none"; // 현재 슬라이드 숨김
+      currentIndex = Math.floor(Math.random() * slides.length); // 랜덤 슬라이드 인덱스 계산
+      slides[currentIndex].style.display = "block"; // 다음 슬라이드 표시
+    });
   }
 }
 
@@ -147,7 +166,7 @@ export async function fetch_SearchMovies(keyword) {
     let filteredMovies = data.results;
 
     // 영화 출력해주기
-    display_Movies(filteredMovies, "subbody"); // render.js 함수
+    display_Movies(filteredMovies, "subBody"); // render.js 함수
     // return filteredMovies; // 검색된 영화 데이터를 반환
   } catch (err) {
     console.error(err);
@@ -166,7 +185,7 @@ export async function fetch_SearchByGenre(genreId) {
     .then((data) => {
       const movies = data.results;
       // 영화 출력해주기
-      display_Movies(movies, "subbody"); // render.js 함수 파일
+      display_Movies(movies, "subBody"); // render.js 함수 파일
       display_Spinner(false);
     })
     .catch((err) => console.error(err));

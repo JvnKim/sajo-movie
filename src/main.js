@@ -5,8 +5,8 @@ import "./detail.js"; // 전은겸 작성
 
 // main과 sub 화면 바꾸는 함수 [김민곤 작성]
 function checkAndToggleVisibility() {
-  const searchContainer = document.getElementById("subbody");
-  const movieListContainer = document.getElementById("mainbody");
+  const searchContainer = document.getElementById("subBody");
+  const movieListContainer = document.getElementById("mainBody");
 
   if (searchContainer.children.length > 0) {
     // searchMovieListContainer에 자식 요소가 있으면 movieListContainer를 숨깁니다.
@@ -24,7 +24,7 @@ document.addEventListener("DOMContentLoaded", checkAndToggleVisibility);
 
 // searchMovieListContainer의 변경 사항을 감시합니다. (예: 자식 요소가 추가되거나 제거될 때)
 const observer = new MutationObserver(checkAndToggleVisibility);
-observer.observe(document.getElementById("subbody"), {
+observer.observe(document.getElementById("subBody"), {
   childList: true, // 자식 요소의 추가 및 제거를 관찰합니다.
 });
 
