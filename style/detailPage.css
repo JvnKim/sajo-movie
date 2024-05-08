@@ -39,12 +39,6 @@ body {
   font-style: normal;
   margin: 0;
   overflow-x: hidden;
-  background: linear-gradient(
-    to right,
-    var(--YaleBlue),
-    var(--OxfordBlue),
-    var(--RichBlack)
-  );
 }
 
 #mainBody {
