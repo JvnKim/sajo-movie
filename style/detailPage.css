@@ -1,273 +1,4 @@
-/* 2024. 05.03  김민곤 작성*/
-
-:root {
-  --background-color: #faf9f6;
-  --RichBlack: #000814;
-  --OxfordBlue: #001d3d;
-  --YaleBlue: #003566;
-  --MikadoYellow: #ffc300;
-  --Gold: #ffd60a;
-}
-
-/*스크롤 바*/
-::-webkit-scrollbar {
-  width: 12px;
-  /* 스크롤바의 폭 */
-}
-
-::-webkit-scrollbar-track {
-  background: var(--RichBlack);
-  /* 스크롤바 트랙의 배경색 */
-}
-
-::-webkit-scrollbar-thumb {
-  background: #c0c0c0;
-  /* 스크롤바의 색상 */
-  border-radius: 6px;
-  /* 스크롤바의 모서리 둥글기 */
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: #ffd60a;
-  /* 스크롤바를 호버했을 때의 색상 */
-}
-
-/* 기본 설정 */
-body {
-  font-family: "Jua", Arial, sans-serif;
-  font-weight: 400;
-  font-style: normal;
-  margin: 0;
-}
-
-#mainBody {
-  /*메인 바디 */
-  background-color: var(--OxfordBlue);
-  color: var(--background-color);
-}
-/* 영화 상세 정보 스타일 */
-#movieDetail {
-  display: flex;
-  /* Flexbox 레이아웃 사용 */
-  justify-content: flex-start;
-  font-size: 20px;
-}
-
-#poster {
-  flex: 1;
-  /* 포스터 이미지가 나머지 내용과 같은 공간을 차지하도록 함 */
-  max-width: 200px;
-  /* 포스터 이미지의 최대 너비를 제한 */
-}
-
-#movieDetail > div {
-  flex: 2;
-  /* 제목, 장르, 평점이 포스터 이미지보다 더 많은 공간을 차지하도록 함 */
-  padding-left: 20px;
-  /* 텍스트와 이미지 사이의 공간을 추가 */
-}
-
-#castList,
-#directorsList {
-  background-color: var(--OxfordBlue);
-  display: flex;
-  overflow-y: hidden;
-}
-
-/*출연진 및 감독 스타일*/
-#cast {
-  display: flex;
-  border: 3px solid;
-  border-color: #000814;
-  border-radius: 1rem;
-  gap: 1px;
-}
-
-#cast > img {
-  overflow: hidden;
-}
-
-#directors {
-  overflow-x: auto;
-  border: 3px solid;
-  border-color: #000814;
-  border-radius: 1rem;
-  display: flex;
-  gap: 1px;
-}
-
-#cast div,
-#directors div {
-  background-color: rgba(0, 29, 61, 0.5);
-  border-radius: 2px;
-  padding: 10px;
-  margin: 0;
-  box-shadow: 3px 5px 3px #000814;
-  transition: transform 0.5s ease-in-out;
-}
-
-#cast span,
-#directors span {
-  display: -webkit-box;
-  -webkit-box-orient: vertical;
-  -webkit-line-clamp: 2;
-  /* 텍스트를 2줄로 제한 */
-  overflow: hidden;
-  text-overflow: ellipsis;
-  text-align: center;
-  max-width: 150px;
-  /* 최대 너비 설정. 필요에 따라 조정하세요. */
-  margin-top: 10px;
-  line-height: 1.2;
-  /* 줄간격 조정 */
-}
-
-/* 출연진 및 감독 가로 스크롤 스타일 */
-
-.scrolling-wrapper h3 {
-  margin: 20px 28px 10px 0;
-  color: var(--Gold);
-  font-size: 1.5rem;
-}
-
-/* 
-각 출연진 및 감독 공통 스타일 */
-.scrolling-wrapper > div {
-  background-color: #003566;
-  height: 20rem;
-  display: flex;
-  align-items: center;
-  overflow: auto;
-  box-shadow: 0 8px 0 var(--RichBlack), 0 16px 0 var(--OxfordBlue);
-}
-.scrolling-wrapper img {
-  width: 10rem;
-  height: auto;
-  border-radius: 10%;
-  box-shadow: 3px 5px 3px rgba(0, 8, 20, 0.5);
-  margin-left: 1px;
-}
-
-/* 댓글 입력 폼 스타일*/
-.comment_form {
-  background-color: rgba(0, 8, 20);
-  max-width: 100%;
-  margin: 20px auto;
-  padding: 20px;
-  border: 1px solid var(--RichBlack);
-  border-radius: 5px;
-  box-shadow: 3px 5px 3px var(--RichBlack);
-}
-
-#inputInfo input,
-#inputText textarea {
-  width: 15rem;
-  padding: 10px;
-  margin-bottom: 10px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  box-sizing: border-box;
-  /* 입력 필드의 패딩이 너비에 포함되도록 설정 */
-}
-/* 텍스트 영역의 높이 조정 */
-#inputText textarea {
-  width: 100%;
-  height: 100px;
-}
-
-#inputText button {
-  border: none;
-  border-radius: 2.5rem;
-
-  color: var(--OxfordBlue);
-  font-size: large;
-
-  background-color: #ffc300;
-  width: 10rem;
-  height: 2rem;
-
-  cursor: pointer;
-  /* 마우스 오버 시 커서 변경 */
-  transition: background-color 0.4s ease, box-shadow 0.4s ease;
-}
-
-#inputText button:hover {
-  background-color: #001d3d;
-  /* 호버 시 배경 색상 변경 */
-  color: #ffc300;
-  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
-  /* 호버 시 그림자 효과 */
-}
-
-/* 댓글 목록 스타일*/
-
-/* 댓글 리스트 컨테이너 스타일 */
-.commentslist {
-  background-color: #2a2a2a;
-  /* 어두운 배경 */
-  padding: 20px;
-  border-radius: 8px;
-  /* 모서리를 둥글게 */
-  margin: 20px 0;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  /* 그림자 효과 */
-}
-
-.commentslist h3 {
-  color: #ffcc00;
-  /* 제목 색상 */
-  margin-bottom: 16px;
-}
-
-.commentslist ul {
-  list-style-type: none;
-  /* 기본 리스트 스타일 제거 */
-  padding: 0;
-}
-
-.commentslist li {
-  background-color: #333333;
-  /* 댓글 배경 */
-  color: #ffffff;
-  /* 댓글 텍스트 색상 */
-  padding: 10px;
-  margin-bottom: 8px;
-  /* 댓글 간격 */
-  border-radius: 4px;
-  /* 댓글 모서리 둥글게 */
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  /* 텍스트와 삭제 버튼 사이의 공간 */
-}
-
-.commentslist button {
-  background-color: #ff5555;
-  /* 삭제 버튼 배경 색상 */
-  color: white;
-  border: none;
-  cursor: pointer;
-  /* 마우스 오버 시 포인터 변경 */
-  padding: 5px 10px;
-  border-radius: 4px;
-  /* 버튼 모서리 둥글게 */
-}
-
-.commentslist button:hover {
-  background-color: #ff2222;
-  /* 삭제 버튼 호버 색상 */
-}
-
-/* 이름 가운데 정렬 05월07일 주현우 작성 */
-.profile-item {
-  text-align: center; /* 가운데 정렬 */
-}
-
-#header_main img {
-  width: 100px;
-  height: auto;
-}
-/* 2024. 05.03  김민곤 작성*/
+/* 2024. 05.03  김민곤 작성 */
 
 :root {
   --background-color: #faf9f6;
@@ -306,15 +37,15 @@ body {
   font-family: "Jua", Arial, sans-serif;
   font-weight: 400;
   font-style: normal;
-  margin: 0;
+  margin-left: 30px;
   overflow-x: hidden;
-  background-color: var(--YaleBlue);
+  background-color: var(--OxfordBlue);
+  color: #faf9f6;
 }
 
 #mainBody {
   /*메인 바디 */
-  background: var(--OxfordBlue);
-  color: var(--background-color);
+
   margin-left: 1;
 }
 /* 영화 상세 정보 스타일 */
@@ -348,8 +79,9 @@ body {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+  justify-content: flex-start;
   width: 100%;
-  height: 80vh;
+  height: 900px;
   margin-bottom: 0;
 }
 #trailerContainer > h3 {
@@ -359,12 +91,13 @@ body {
   height: 20px;
 }
 #trailer {
-  width: 100%;
-  height: 100%;
+  width: 99%;
+  height: 900px;
 }
 #trailer > iframe {
   width: 100%;
-  height: 80%;
+  height: 100%;
+  margin: 0;
 }
 
 #castList,
@@ -430,7 +163,7 @@ body {
 /* 
 각 출연진 및 감독 공통 스타일 */
 .scrolling-wrapper > div {
-  background-color: #003566;
+  background-color: var(--OxfordBlue);
   height: 20rem;
   display: flex;
   align-items: center;
@@ -446,13 +179,12 @@ body {
 
 /* 댓글 입력 폼 스타일*/
 .comment_form {
-  background-color: rgba(0, 8, 20);
+  color: var(--background-color);
   max-width: 100%;
   margin: 20px auto;
   padding: 20px;
-  border: 1px solid var(--RichBlack);
+  /* border: 1px solid var(--RichBlack); */
   border-radius: 5px;
-  box-shadow: 3px 5px 3px var(--RichBlack);
 }
 
 #inputInfo input,
@@ -463,9 +195,12 @@ body {
   width: 15rem;
   padding: 10px;
   margin-bottom: 10px;
-  border: 1px solid #ccc;
+  border: 1px solid var(--OxfordBlue);
   border-radius: 4px;
   box-sizing: border-box;
+
+  background-color: #333333;
+
   /* 입력 필드의 패딩이 너비에 포함되도록 설정 */
 }
 /* 텍스트 영역의 높이 조정 */
@@ -506,10 +241,9 @@ body {
 
 /* 댓글 리스트 컨테이너 스타일 */
 .commentslist {
-  background-color: #2a2a2a;
+  background-color: var(--OxfordBlue);
   /* 어두운 배경 */
   padding: 20px;
-  border-radius: 8px;
   /* 모서리를 둥글게 */
   margin: 20px 0;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -545,9 +279,9 @@ body {
 }
 
 .commentslist button {
-  background-color: #ff5555;
+  background-color: var(--MikadoYellow);
   /* 삭제 버튼 배경 색상 */
-  color: white;
+  color: var(--OxfordBlue);
   border: none;
   cursor: pointer;
   /* 마우스 오버 시 포인터 변경 */
@@ -557,10 +291,15 @@ body {
 }
 
 .commentslist button:hover {
-  background-color: #ff2222;
+  background-color: var(--Gold);
   /* 삭제 버튼 호버 색상 */
 }
 
+.jb-division-line {
+  border-top: 3px solid var(--Gold);
+  margin: 30px auto;
+  width: 95vw;
+}
 /* 이름 가운데 정렬 05월07일 주현우 작성 */
 .profile-item {
   text-align: center; /* 가운데 정렬 */
