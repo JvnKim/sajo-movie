@@ -1,10 +1,10 @@
 import {
-  display_JenreButtons,
+  display_GenreButtons,
   display_Movies,
   display_Spinner,
 } from "./render.js";
 
-const TBDB_URL = "https://api.themoviedb.org/3";
+const TMDB_URL = "https://api.themoviedb.org/3";
 const options = {
   method: "GET",
   headers: {
@@ -26,7 +26,7 @@ export async function fetch_Movies() {
   display_Spinner(true);
   try {
     const response = await fetch(
-      `${TBDB_URL}/movie/now_playing?language=ko-KR&page=1`,
+      `${TMDB_URL}/movie/now_playing?language=ko-KR&page=1`,
       options
     );
     const data = await response.json();
@@ -51,7 +51,7 @@ async function fetchMovieTrailers(movieId) {
 
   try {
     const response = await fetch(
-      `${TBDB_URL}/movie/${movieId}/videos?language=en-US`,
+      `${TMDB_URL}/movie/${movieId}/videos?language=en-US`,
       options
     );
     const data = await response.json();
@@ -121,13 +121,13 @@ function startSlider() {
 // 운성
 
 // 장르 목록을 불러오는 함수
-export async function fetch_Jenres() {
-  await fetch(`${TBDB_URL}/genre/movie/list?language=en`, options)
+export async function fetch_Genres() {
+  await fetch(`${TMDB_URL}/genre/movie/list?language=en`, options)
     .then((response) => response.json())
     .then((data) => {
-      const jenres = new Map(data.genres.map((item) => [item.name, item.id]));
+      const genres = new Map(data.genres.map((item) => [item.name, item.id]));
       // 장르 버튼 출력하는 함수
-      display_JenreButtons(jenres); // render.js 함수
+      display_GenreButtons(genres); // render.js 함수
     })
     .catch((error) => {
       console.log(error);
@@ -138,7 +138,7 @@ export async function fetch_Jenres() {
 export async function fetch_SearchMovies(keyword) {
   try {
     const response = await fetch(
-      `${TBDB_URL}/search/movie?query=${encodeURIComponent(
+      `${TMDB_URL}/search/movie?query=${encodeURIComponent(
         keyword
       )}&language=ko-KR&page=1&include_adult=false`,
       options
@@ -156,10 +156,10 @@ export async function fetch_SearchMovies(keyword) {
 }
 
 // 장르에 따른 영화 목록을 찾아서 불러오는 함수
-export async function fetch_SearchByJenre(genreId) {
+export async function fetch_SearchByGenre(genreId) {
   display_Spinner(true);
   await fetch(
-    `${TBDB_URL}/discover/movie?with_genres=${genreId}&language=ko-KR&page=1`,
+    `${TMDB_URL}/discover/movie?with_genres=${genreId}&language=ko-KR&page=1`,
     options
   )
     .then((response) => response.json())
@@ -176,7 +176,7 @@ export async function fetch_SearchByJenre(genreId) {
 export async function fetch_MovieList(genreId, divId) {
   display_Spinner(true);
   await fetch(
-    `${TBDB_URL}/discover/movie?with_genres=${genreId}&language=ko-KR&page=1`,
+    `${TMDB_URL}/discover/movie?with_genres=${genreId}&language=ko-KR&page=1`,
     options
   )
     .then((response) => response.json())
