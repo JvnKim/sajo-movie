@@ -198,3 +198,18 @@ export async function fetch_MovieList(genreId, divId) {
     })
     .catch((err) => console.error(err));
 }
+// 2024.05.08 김민곤 작성
+export function handleSlider(divId, container) {
+  container.addEventListener("DOMContentLoaded", () => {
+    const cardContainer = document.querySelector(divId);
+    const button = divId + "-btn";
+    const slideButtons = document.querySelectorAll("button");
+
+    slideButtons.forEach((btn) => {
+      btn.addEventListener("click", function () {
+        const offset = btn.classList.contains("left") ? -200 : 200; // 슬라이드할 거리 조정
+        cardsContainer.scrollBy({ left: offset, behavior: "smooth" });
+      });
+    });
+  });
+}
