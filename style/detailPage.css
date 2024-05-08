@@ -158,9 +158,9 @@ body {
   max-width: 100%;
   margin: 20px auto;
   padding: 20px;
-  border: 1px solid #001d3d;
+  border: 1px solid var(--RichBlack);
   border-radius: 5px;
-  box-shadow: 3px 5px 3px #001d3d;
+  box-shadow: 3px 5px 3px var(--RichBlack);
 }
 
 #inputInfo input,

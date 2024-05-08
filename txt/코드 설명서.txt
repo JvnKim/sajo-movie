@@ -1,0 +1,22 @@
+
+
+
+fetch.js : API 요청 해서 받아오는 부분 (함수명: fetch_[기능 이름])
+render.js : fetch에서 값을 받아왔으면, 그 값으로 출력해 주는 함수를 모아둔 파일입니다. (함수명 : display_[출력내용])
+eventListener.js : 버튼이나 카드를 클릭하게 되면 발생되는 event를 모아둔 파일입니다.
+
+흐름 :
+1. fetch로 값을 받아온다.
+2. render로 보여준다.
+3. eventListener 는 상호작용을 위한 함수들
+
+fetch.js 에서 
+response  : 응답 받은 값
+data  : json으로 변환시킨 값 이라고 생각해주세요.
+
+
+
+displaySpinner : 신경 안쓰셔도 됩니다.. 화면 로딩 할때 빙글빙글 도는 원 입니다.
+
+
+

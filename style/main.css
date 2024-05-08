@@ -291,28 +291,6 @@ body {
   }
 }
 
-#bottom {
-  display: flex;
-  justify-content: space-between;
-  align-items: center; /* 아이템을 수직 가운데 정렬 */
-  padding: 0px; /* 여백 추가 */
-  height: auto; /* 높이를 자동으로 조정 */
-}
-
-.scrollTop {
-  cursor: pointer;
-  background-color: rgba(255, 255, 255, 0);
-  color: #ffc300;
-  font-size: 50px;
-  padding: 10px 0;
-  border: none;
-  opacity: 0.8;
-  transition: all 0.3s ease;
-}
-
-.github-image {
-  display: inline-block;
-  width: 50px;
-  height: auto;
-  margin-left: 10px;
+.bottom {
+  text-align: right;
 }
