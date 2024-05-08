@@ -19,7 +19,7 @@
 }
 #header_main img {
   width: 100px;
-  height: 70px;
+  height: auto;
   margin-right: 40px;
 }
 .home-link {
@@ -59,7 +59,7 @@
   max-height: 140px;
   /* 충분한 높이 설정 */
 }
-.genre-menu:hover .jenre-button {
+.genre-menu:hover .genre-button {
   transform: translateX(0);
 }
 /* 운성 */
@@ -106,7 +106,7 @@
 }
 
 /* 2024.5.3 운성 장르 버튼 수정 */
-.jenre-button {
+.genre-button {
   padding: 5px 10px;
   margin: 1px;
   display: inline-block;
@@ -125,6 +125,6 @@
   font-size: 15px;
 }
 
-.jenre-button:hover {
+.genre-button:hover {
   border-color: rgba(255, 255, 255, 0.5);
 }

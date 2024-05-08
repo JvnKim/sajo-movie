@@ -1,42 +1,12 @@
-// import { handleSearch } from "./eventListener.js";
-// import { fetch_Jenres, fetch_Movies } from "./fetch.js";
-// import { handleMovieCardClick } from "./eventListener.js"; //2024년 5월1일 주현우 작성
-// /*
-//   main 애매하다 싶은 함수 들은 일단 다 여기다 넣으세요.
-// */
-
-// //리다이렉트 함수
-// function handleRedirect(container) {
-//   document.addEventListener("DOMContentLoaded", function () {
-//     document.querySelector(container).addEventListener("click", function () {
-//       location.reload(); // 현재 페이지를 새로고침합니다.
-//     });
-//   });
-// }
-
-// // 검색 기능
-// handleSearch();
-
-// //장르 항목들 불러오기
-// fetch_Jenres();
-// //영화 정보 불러오기
-// fetch_Movies();
-
-// // h1 태그를 누르면 redirect 된다.
-// handleRedirect("h1");
-
-// // 영화 카드 클릭 이벤트 처리 함수 호출 (2024년 5월1일 주현우 작성)
-// handleMovieCardClick();
-
 import { handleSearch, handleMovieCardClick } from "./eventListener.js";
-import { fetch_Jenres, fetch_MovieList, fetch_Movies } from "./fetch.js";
+import { fetch_Genres, fetch_MovieList, fetch_Movies } from "./fetch.js";
 // import { handleMovieCardClick } from "./eventListener.js"; //주현우 작성
 import "./detail.js"; // 전은겸 작성
 
 // main과 sub 화면 바꾸는 함수 [김민곤 작성]
 function checkAndToggleVisibility() {
-  const searchContainer = document.getElementById("subbody");
-  const movieListContainer = document.getElementById("mainbody");
+  const searchContainer = document.getElementById("subBody");
+  const movieListContainer = document.getElementById("mainBody");
 
   if (searchContainer.children.length > 0) {
     // searchMovieListContainer에 자식 요소가 있으면 movieListContainer를 숨깁니다.
@@ -54,7 +24,7 @@ document.addEventListener("DOMContentLoaded", checkAndToggleVisibility);
 
 // searchMovieListContainer의 변경 사항을 감시합니다. (예: 자식 요소가 추가되거나 제거될 때)
 const observer = new MutationObserver(checkAndToggleVisibility);
-observer.observe(document.getElementById("subbody"), {
+observer.observe(document.getElementById("subBody"), {
   childList: true, // 자식 요소의 추가 및 제거를 관찰합니다.
 });
 
@@ -99,7 +69,7 @@ function handleRedirect(container) {
 handleSearch();
 
 //장르 항목들 불러오기
-fetch_Jenres();
+fetch_Genres();
 
 //영화 정보 불러오기
 fetch_Movies();

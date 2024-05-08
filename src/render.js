@@ -5,7 +5,7 @@
 
 */
 
-import { cardClickEvent, jenreBtnClickEvent } from "./eventListener.js";
+import { cardClickEvent, genreBtnClickEvent } from "./eventListener.js";
 
 //#region  [작성자 : 김민곤]
 // 영화 카드를 생성하는 함수
@@ -40,9 +40,9 @@ export function display_Movies(movies, divId) {
 }
 
 // 스피너 랜더링 하는 함수
-export function display_Spinner(isvisible) {
+export function display_Spinner(isVisible) {
   const spinnerContainer = document.getElementById("spinner-container");
-  if (isvisible) {
+  if (isVisible) {
     spinnerContainer.innerHTML = `<div class="fetch_ing-spinner"></div>`;
   } else {
     spinnerContainer.style.display = "none";
@@ -50,17 +50,17 @@ export function display_Spinner(isvisible) {
 }
 
 // 장르 버튼 렌더링 하는 함수
-export function display_JenreButtons(jenres) {
-  const buttonContainer = document.getElementById("jenres_buttons");
-  jenres.forEach((key, value) => {
+export function display_GenreButtons(genres) {
+  const buttonContainer = document.getElementById("genres_buttons");
+  genres.forEach((key, value) => {
     let btnDiv = document.createElement("div");
-    btnDiv.id = "jenre-button";
-    btnDiv.classList.add("jenre-button");
+    btnDiv.id = "genre-button";
+    btnDiv.classList.add("genre-button");
     btnDiv.innerHTML = `
-    <button class="jenre-button">${value}</button>`;
+    <button class="genre-button">${value}</button>`;
 
     // 장르 버튼 클릭 이벤트 처리 함수(eventListener.js)
-    jenreBtnClickEvent(key, btnDiv);
+    genreBtnClickEvent(key, btnDiv);
 
     buttonContainer.appendChild(btnDiv);
   });
@@ -76,22 +76,3 @@ function display_ReviewStars(num) {
   }
   return stars;
 }
-//#endregion
-
-// 전은겸 작성 240502 //뭐가 안맞아서 잠깐 주석처리
-// // 배우&제작진 표시 함수
-// export function display_Credits(credits) {
-//   const creditsContainer = document.getElementById("credits");
-//   creditsContainer.innerHTML = ""; // 기존 정보 모두 지워
-
-//   credits.forEach((credit) => {
-//     const creditDiv = document.createElement("div");
-//     creditDiv.classList.add("credit-item");
-//     creditDiv.innerHTML = `
-//       <img src="https://image.tmdb.org/t/p/w500/${credit.profile_path}" alt="${credit.name}" class="credit-img">
-//       <p class="credit-name">${credit.name}</p>
-//       <p class="credit-character">${credit.character || "N/A"}</p>
-//     `;
-//     creditsContainer.appendChild(creditDiv);
-//   });
-// }

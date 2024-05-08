@@ -1,10 +1,10 @@
 import {
-  display_JenreButtons,
+  display_GenreButtons,
   display_Movies,
   display_Spinner,
 } from "./render.js";
 
-const TBDB_URL = "https://api.themoviedb.org/3";
+const TMDB_URL = "https://api.themoviedb.org/3";
 const options = {
   method: "GET",
   headers: {
@@ -26,7 +26,7 @@ export async function fetch_Movies() {
   display_Spinner(true);
   try {
     const response = await fetch(
-      `${TBDB_URL}/movie/now_playing?language=ko-KR&page=1`,
+      `${TMDB_URL}/movie/now_playing?language=ko-KR&page=1`,
       options
     );
     const data = await response.json();
@@ -40,18 +40,9 @@ export async function fetch_Movies() {
 }
 
 async function fetchMovieTrailers(movieId) {
-  // const trailerOptions = {
-  //   method: "GET",
-  //   headers: {
-  //     accept: "application/json",
-  //     Authorization:
-  //       "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI0ZTUxMjBmOGFmMWJkNmQ0OGU2Y2E4MDAzYmY2ZjAwNiIsInN1YiI6IjY2MjYzNjVkN2E5N2FiMDE3ZDhmMTc3OCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.y0YvIb-StdqiAR5fgypwYHkV8MLZhbAJ5ygnX7ebCcY",
-  //   },
-  // };
-
   try {
     const response = await fetch(
-      `${TBDB_URL}/movie/${movieId}/videos?language=en-US`,
+      `${TMDB_URL}/movie/${movieId}/videos?language=en-US`,
       options
     );
     const data = await response.json();
@@ -104,30 +95,49 @@ async function updateSliderWithMovies(movies) {
   startSlider(); // 슬라이더 애니메이션 시작
 }
 
+// 2024.05.08 운성 영화 랜덤 슬라이드 수정
 function startSlider() {
   let slides = document.querySelectorAll(".slide");
   let currentIndex = 0;
   if (slides.length > 0) {
+    let currentIndex = Math.floor(Math.random() * slides.length);
     slides[currentIndex].style.display = "block"; // 첫 번째 슬라이드 표시
 
+    // 슬라이드 변경 주기 설정
     setInterval(() => {
       slides[currentIndex].style.display = "none"; // 현재 슬라이드 숨김
       currentIndex = (currentIndex + 1) % slides.length;
       slides[currentIndex].style.display = "block"; // 다음 슬라이드 표시
-    }, 15000); // 3분마다 슬라이드 변경
+    }, 15000); // 15초마다 슬라이드 변경
+
+    // 버튼 클릭 이벤트 처리
+    const prevButton = document.querySelector(".prev");
+    const nextButton = document.querySelector(".next");
+
+    prevButton.addEventListener("click", () => {
+      slides[currentIndex].style.display = "none"; // 현재 슬라이드 숨김
+      currentIndex = (currentIndex - 1 + slides.length) % slides.length; // 이전 슬라이드 인덱스 계산
+      slides[currentIndex].style.display = "block"; // 이전 슬라이드 표시
+    });
+
+    nextButton.addEventListener("click", () => {
+      slides[currentIndex].style.display = "none"; // 현재 슬라이드 숨김
+      currentIndex = Math.floor(Math.random() * slides.length); // 랜덤 슬라이드 인덱스 계산
+      slides[currentIndex].style.display = "block"; // 다음 슬라이드 표시
+    });
   }
 }
 
 // 운성
 
 // 장르 목록을 불러오는 함수
-export async function fetch_Jenres() {
-  await fetch(`${TBDB_URL}/genre/movie/list?language=en`, options)
+export async function fetch_Genres() {
+  await fetch(`${TMDB_URL}/genre/movie/list?language=en`, options)
     .then((response) => response.json())
     .then((data) => {
-      const jenres = new Map(data.genres.map((item) => [item.name, item.id]));
+      const genres = new Map(data.genres.map((item) => [item.name, item.id]));
       // 장르 버튼 출력하는 함수
-      display_JenreButtons(jenres); // render.js 함수
+      display_GenreButtons(genres); // render.js 함수
     })
     .catch((error) => {
       console.log(error);
@@ -138,7 +148,7 @@ export async function fetch_Jenres() {
 export async function fetch_SearchMovies(keyword) {
   try {
     const response = await fetch(
-      `${TBDB_URL}/search/movie?query=${encodeURIComponent(
+      `${TMDB_URL}/search/movie?query=${encodeURIComponent(
         keyword
       )}&language=ko-KR&page=1&include_adult=false`,
       options
@@ -147,7 +157,7 @@ export async function fetch_SearchMovies(keyword) {
     let filteredMovies = data.results;
 
     // 영화 출력해주기
-    display_Movies(filteredMovies, "subbody"); // render.js 함수
+    display_Movies(filteredMovies, "subBody"); // render.js 함수
     // return filteredMovies; // 검색된 영화 데이터를 반환
   } catch (err) {
     console.error(err);
@@ -156,17 +166,17 @@ export async function fetch_SearchMovies(keyword) {
 }
 
 // 장르에 따른 영화 목록을 찾아서 불러오는 함수
-export async function fetch_SearchByJenre(genreId) {
+export async function fetch_SearchByGenre(genreId) {
   display_Spinner(true);
   await fetch(
-    `${TBDB_URL}/discover/movie?with_genres=${genreId}&language=ko-KR&page=1`,
+    `${TMDB_URL}/discover/movie?with_genres=${genreId}&language=ko-KR&page=1`,
     options
   )
     .then((response) => response.json())
     .then((data) => {
       const movies = data.results;
       // 영화 출력해주기
-      display_Movies(movies, "subbody"); // render.js 함수 파일
+      display_Movies(movies, "subBody"); // render.js 함수 파일
       display_Spinner(false);
     })
     .catch((err) => console.error(err));
@@ -176,7 +186,7 @@ export async function fetch_SearchByJenre(genreId) {
 export async function fetch_MovieList(genreId, divId) {
   display_Spinner(true);
   await fetch(
-    `${TBDB_URL}/discover/movie?with_genres=${genreId}&language=ko-KR&page=1`,
+    `${TMDB_URL}/discover/movie?with_genres=${genreId}&language=ko-KR&page=1`,
     options
   )
     .then((response) => response.json())
