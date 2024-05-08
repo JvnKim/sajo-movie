@@ -108,7 +108,7 @@ function createCommentContainer(movieId) {
   } else {
     previousCommentsElement.innerHTML += "<p>댓글이 없습니다.</p>";
   }
-  // previousCommentsElement.style.color = "white";
+  previousCommentsElement.style.color = "white";
   commentContainer.appendChild(previousCommentsElement);
 
   return commentContainer;
