@@ -289,7 +289,7 @@ body {
 }
 
 ::-webkit-scrollbar-track {
-  background: var(--RichBlack);
+  background: var(--OxfordBlue);
   /* 스크롤바 트랙의 배경색 */
 }
 
@@ -317,12 +317,7 @@ body {
 
 #mainBody {
   /*메인 바디 */
-  background: linear-gradient(
-    to bottom,
-    var(--YaleBlue),
-    var(--OxfordBlue),
-    var(--RichBlack)
-  );
+  background: var(--OxfordBlue);
   color: var(--background-color);
   margin-left: 1;
 }
@@ -330,6 +325,8 @@ body {
 #movieDetail {
   display: flex;
   /* Flexbox 레이아웃 사용 */
+  margin-top: 20px;
+  margin-left: 20px;
   justify-content: flex-start;
   font-size: 20px;
 }
