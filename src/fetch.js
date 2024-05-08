@@ -81,16 +81,18 @@ async function updateSliderWithMovies(movies) {
     // 트레일러가 있으면 임베드하고, 없으면 메시지 표시
     const iframePart = trailerKey
       ? `<iframe src="${trailerEmbedUrl}" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen class="custom-iframe"></iframe>`
-      : `<div>트레일러가 없습니다.</div>`;
+      : `<div>트레일러가 없습니다</div>`;
 
     slide.innerHTML = `
           <div class="slide-content">
-              <img src="https://image.tmdb.org/t/p/w500${movie.poster_path}" alt="${movie.title}" class="slide-img">
+              <img src="https://image.tmdb.org/t/p/w500${
+                movie.poster_path
+              }" alt="${movie.title}" class="slide-img">
               <div class="movie-info">
               ${iframePart}
                   <h3>${movie.title}</h3>
                   <p>개봉일: ${movie.release_date}</p>
-                  <p>평점: ${movie.vote_average} / 10</p>
+                  <p>평점: ${movie.vote_average.toFixed(2)} / 10</p>
                   
               </div>
           </div>

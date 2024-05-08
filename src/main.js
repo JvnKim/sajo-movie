@@ -41,9 +41,11 @@ function checkAndToggleVisibility() {
   if (searchContainer.children.length > 0) {
     // searchMovieListContainer에 자식 요소가 있으면 movieListContainer를 숨깁니다.
     movieListContainer.style.display = "none";
+    searchContainer.style.display = "grid";
   } else {
     // searchMovieListContainer에 자식 요소가 없으면 movieListContainer를 보여줍니다.
     movieListContainer.style.display = "block";
+    searchContainer.style.display = "none";
   }
 }
 

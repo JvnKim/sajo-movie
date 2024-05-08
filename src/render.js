@@ -68,7 +68,7 @@ export function display_JenreButtons(jenres) {
 
 // 별점 별 찍기 [2024.05.04 김민곤]
 function display_ReviewStars(num) {
-  num = Math.floor(num);
+  num = Math.floor(num) / 2;
 
   let stars = "";
   for (let i = 0; i < num; i++) {

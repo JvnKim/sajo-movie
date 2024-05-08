@@ -35,9 +35,10 @@ body {
   width: 100%;
   margin: 0;
   overflow-x: hidden;
+  /*메인 바디 */
+  background: #000814;
 }
 #mainbody {
-  /*메인 바디 */
   background: linear-gradient(
     to bottom,
     var(--YaleBlue),
@@ -54,7 +55,7 @@ body {
     var(--RichBlack)
   );
   display: grid;
-  margin: 0px auto 0 auto;
+  height: 100%;
   padding-top: 1.5rem;
   grid-template-columns: repeat(auto-fill, minmax(18rem, 20rem));
   grid-gap: 10px;
@@ -111,6 +112,10 @@ body {
   display: flex;
 }
 
+.back-img {
+  background-size: cover; /* 이미지가 전체 화면을 커버하도록 설정 */
+}
+
 /* [2024.05.03 작성자 : 민곤 ] */
 
 #main {
@@ -160,7 +165,7 @@ body {
   border: 1px solid var(--YaleBlue);
   border-radius: 3px;
   width: 300px;
-  height: 600px;
+  height: 500px;
   position: relative;
   overflow: hidden;
 
