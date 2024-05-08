@@ -43,10 +43,6 @@ body {
 
 #mainBody {
   /*메인 바디 */
-}
-
-#mainbody {
-  /*메인 바디 */
 
   color: var(--background-color);
   margin: 10px auto 0 10px;
