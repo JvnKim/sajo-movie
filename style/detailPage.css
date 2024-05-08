@@ -42,12 +42,7 @@ body {
 
 #mainBody {
   /*메인 바디 */
-  background: linear-gradient(
-    to bottom,
-    var(--YaleBlue),
-    var(--OxfordBlue),
-    var(--RichBlack)
-  );
+  background-color: var(--OxfordBlue);
   color: var(--background-color);
 }
 /* 영화 상세 정보 스타일 */
@@ -74,6 +69,7 @@ body {
 
 #castList,
 #directorsList {
+  background-color: var(--OxfordBlue);
   display: flex;
   overflow-y: hidden;
 }
