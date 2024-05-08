@@ -37,7 +37,7 @@ body {
   font-family: "Jua", Arial, sans-serif;
   font-weight: 400;
   font-style: normal;
-  margin-left: 30px;
+
   overflow-x: hidden;
   background-color: var(--OxfordBlue);
   color: #faf9f6;
@@ -45,8 +45,7 @@ body {
 
 #mainBody {
   /*메인 바디 */
-
-  margin-left: 1;
+  margin-left: 30px;
 }
 /* 영화 상세 정보 스타일 */
 #movieDetail {
