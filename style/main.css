@@ -37,7 +37,7 @@ body {
   overflow-x: hidden;
 
   /*메인 바디 */
-  background: #003566;
+  background: var(--OxfordBlue);
 }
 
 #mainBody {
