@@ -1,6 +1,15 @@
 // URL에서 영화 ID 추출
 const urlParams = new URLSearchParams(window.location.search);
 const movieId = urlParams.get("id");
+const TMDB_URL = "https://api.themoviedb.org/3";
+const options = {
+  method: "GET",
+  headers: {
+    accept: "application/json",
+    Authorization:
+      "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI3OWZmNmMxY2VhMDUxMTg3ZTYzMTUzYWQyYzYzY2E5ZCIsInN1YiI6IjY0ZTg1ZmU2NTI1OGFlMDE0ZGYyMjZlOSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.LwbMg29luCKo58wfbjsZRD8NXPMkXj3CRD-WwwzGeTk",
+  },
+};
 
 // 영화 정보 가져오기
 async function fetchMovieDetails() {
@@ -18,6 +27,23 @@ async function fetchMovieDetails() {
     }
   } catch (error) {
     console.error("영화 정보를 가져오는 중에 오류가 발생했습니다:", error);
+    return null;
+  }
+}
+
+async function fetchMovieTrailers(movieId) {
+  try {
+    const response = await fetch(
+      `${TMDB_URL}/movie/${movieId}/videos?language=en-US`,
+      options
+    );
+    const data = await response.json();
+    const trailer = data.results.find(
+      (video) => video.type === "Trailer" && video.site === "YouTube"
+    );
+    return trailer ? trailer.key : null; // YouTube video key if trailer exists
+  } catch (error) {
+    console.error("Error fetching trailers:", error);
     return null;
   }
 }
@@ -62,7 +88,6 @@ function displayCastAndDirectorsProfile(movie) {
     });
 }
 
-// 영화 정보 화면에 표시하는 함수
 async function displayMovieDetails() {
   const movie = await fetchMovieDetails();
   if (!movie) return; // 영화 정보가 없을 경우 함수 종료
@@ -73,6 +98,7 @@ async function displayMovieDetails() {
   const runtimeElement = document.getElementById("runtime");
   const overviewElement = document.getElementById("overview");
   const releaseDateElement = document.getElementById("releaseDate");
+  const trailerContainer = document.getElementById("trailer"); // 트레일러 표시 영역 추가
 
   posterElement.src = `https://image.tmdb.org/t/p/w500/${movie.poster_path}`;
   titleElement.textContent = movie.title;
@@ -86,6 +112,15 @@ async function displayMovieDetails() {
     ? "줄거리: " + movie.overview
     : "줄거리 업데이트 중입니다.";
   releaseDateElement.textContent = "개봉일: " + movie.release_date;
+
+  // 트레일러 가져와서 표시
+  const trailerKey = await fetchMovieTrailers(movie.id);
+  if (trailerKey) {
+    const trailerEmbedUrl = `https://www.youtube.com/embed/${trailerKey}?autoplay=0&mute=1`;
+    trailerContainer.innerHTML = `<iframe src="${trailerEmbedUrl}" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen class="custom-iframe"></iframe>`;
+  } else {
+    trailerContainer.textContent = "트레일러를 찾을 수 없습니다.";
+  }
 
   displayCastAndDirectorsProfile(movie);
 }
