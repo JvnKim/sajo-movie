@@ -6,14 +6,19 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>SAJO MOVIE</title>
 
-  <link rel="stylesheet" href="./style/main.css" />
-  <link rel="stylesheet" href="./style/header.css" />
-  <!-- Font 파일 링크-->
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Jua&display=swap" rel="stylesheet" />
-  <script type="module" src="./src/main.js"></script>
-</head>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SAJO MOVIE</title>
+
+    <link rel="stylesheet" href="./style/main.css" />
+    <link rel="stylesheet" href="./style/header.css" />
+    <!-- Font 파일 링크-->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Jua&display=swap" rel="stylesheet" />
+    <script type="module" src="./src/main.js"></script>
+  </head>
 
 <body>
   <header>
@@ -35,21 +40,95 @@
       </div>
     </div>
   </header>
+  <link rel="stylesheet" href="./style/main.css" />
+  <link rel="stylesheet" href="./style/header.css" />
+  <!-- Font 파일 링크-->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Jua&display=swap" rel="stylesheet" />
+  <script type="module" src="./src/main.js"></script>
+  </head>
 
-  <div id="mainBody">
-    <div class="topSlider">
-      <button class="prev">&#10094;</button>
-      <div class="slider" id="movieSlider">
-        <!-- 슬라이더 내용은 JavaScript를 통해 동적으로 삽입됩니다 -->
+  <body>
+    <header>
+      <div id="header_main">
+        <img src="https://ifh.cc/g/tmM9pW.png" alt="Your Image Description" />
+        <a href="/" class="home-link">홈</a>
+        <div class="genre-menu">
+          <span class="genre-trigger">장르</span>
+          <div class="button-container" id="genres_buttons">
+            <!-- 장르 목록이 들어갈 자리-->
+          </div>
+        </div>
+        <div id="form" class="form">
+          <form class="search_form" onsubmit="search(event)">
+            <input type="text" id="search_input" placeholder="영화 제목을 검색해 보세요" />
+            <label for="search_input" id="search_icon">&#128269;</label>
+            <button type="submit" id="search_button">검색</button>
+          </form>
+        </div>
       </div>
-      <button class="next">&#10095;</button>
-    </div>
+    </header>
 
-    <div id="spinner-container">
-      <!-- 스피너 들어갈 자리-->
-    </div>
-    <div id="movieListContainer">
-      <h2 id="listTitle">최신영화</h2>
+    <div id="mainBody">
+      <div class="topSlider">
+        <button class="prev">&#10094;</button>
+        <div class="slider" id="movieSlider">
+          <!-- 슬라이더 내용은 JavaScript를 통해 동적으로 삽입됩니다 -->
+        </div>
+        <button class="next">&#10095;</button>
+      </div>
+
+      <div id="spinner-container">
+        <!-- 스피너 들어갈 자리-->
+      </div>
+      <div id="movieListContainer">
+        <h2 id="listTitle">최신영화</h2>
+        <div id="spinner-container">
+          <!-- 스피너 들어갈 자리-->
+        </div>
+        <div id="movieListContainer">
+          <h2 id="listTitle">최신영화</h2>
+
+          <div id="movieListSlider">
+            <div id="latestMovies" class="latestMovies">
+              <!-- 영화 카드가 들어갈 자리-->
+            </div>
+          </div>
+          <h2 id="listTitle">SF</h2>
+          <div id="movieListSlider">
+            <div id="Fantasy"></div>
+          </div>
+          <h2 id="listTitle">액션</h2>
+          <div id="movieListSlider">
+            <div id="Action"></div>
+          </div>
+          <h2 id="listTitle">코미디</h2>
+          <div id="movieListSlider">
+            <div id="Comedy"></div>
+          </div>
+        </div>
+      </div>
+      <footer>
+        <div id="bottom">
+          <a href="https://github.com/JvnKim/sajo-movie">github</a>
+        </div>
+      </footer>
+      <div id="subBody"></div>
+
+      <!-- subBody.html을 불러오는 스크립트 -->
+      <script src="./src/subBody.js"></script>
+      <script>
+        // 검색 함수
+        function search(event) {
+          event.preventDefault(); // 폼 제출 기본 동작 방지
+          const keyword = document.getElementById('search_input').value;
+          performSearch(keyword);
+
+          // 검색한 키워드를 URL에 반영
+          history.pushState(null, null, `/?q=${encodeURIComponent(keyword)}`);
+        }
+      </script>
 
       <div id="movieListSlider">
         <div id="latestMovies" class="latestMovies">
@@ -69,26 +148,26 @@
         <div id="Comedy"></div>
       </div>
     </div>
-  </div>
-  <footer>
-    <div id="bottom">
-      <a href="https://github.com/JvnKim/sajo-movie">github</a>
     </div>
-  </footer>
-  <div id="subBody"></div>
+    <footer>
+      <div id="bottom">
+        <a href="https://github.com/JvnKim/sajo-movie">github</a>
+      </div>
+    </footer>
+    <div id="subBody"></div>
 
-  <!-- subBody.html을 불러오는 스크립트 -->
-  <script src="./src/subBody.js"></script>
-  <script>
-    // 검색 함수
-    function search(event) {
-      event.preventDefault(); // 폼 제출 기본 동작 방지
-      const keyword = document.getElementById('search_input').value;
-      performSearch(keyword);
+    <!-- subBody.html을 불러오는 스크립트 -->
+    <script src="./src/subBody.js"></script>
+    <script>
+      // 검색 함수
+      function search(event) {
+        event.preventDefault(); // 폼 제출 기본 동작 방지
+        const keyword = document.getElementById('search_input').value;
+        performSearch(keyword);
 
-      // 검색한 키워드를 URL에 반영
-      history.pushState(null, null, `/?q=${encodeURIComponent(keyword)}`);
-    }
-  </script>
+        // 검색한 키워드를 URL에 반영
+        history.pushState(null, null, `/?q=${encodeURIComponent(keyword)}`);
+      }
+    </script>
 
 </html>
