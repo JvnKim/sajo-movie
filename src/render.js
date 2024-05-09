@@ -55,7 +55,6 @@ export function display_GenreButtons(genres) {
   genres.forEach((key, value) => {
     let btnDiv = document.createElement("div");
     btnDiv.id = "genre-button";
-    btnDiv.classList.add("genre-button");
     btnDiv.innerHTML = `
     <button class="genre-button">${value}</button>`;
 

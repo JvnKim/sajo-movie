@@ -115,7 +115,7 @@ body {
   flex: 1;
   /* 정보창에 유연한 크기 할당 */
   padding: 20px;
-  background-color: #003566;
+  background-color: var(--OxfordBlue);
   color: white;
   display: flex;
   flex-direction: column;
