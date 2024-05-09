@@ -68,7 +68,7 @@ async function updateSliderWithMovies(movies) {
                   <h3>${movie.title}</h3>
                   <p>개봉일: ${movie.release_date}</p>
                   <p>평점: ${movie.vote_average.toFixed(2)} / 10</p>
-                  
+                    <a href="/detail.html?id=${movie.id}" class="detail-link">상세 보기</a>
               </div>
           </div>
       `;
