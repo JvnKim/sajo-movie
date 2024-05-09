@@ -131,16 +131,8 @@
 }
 
 .genre-button:hover {
-<<<<<<< HEAD
-<<<<<<< HEAD
-  border-color: rgba(255, 255, 255, 0.5);
-}
-=======
-    border-color: rgba(255, 255, 255, 0.5);
-=======
   background: #003566;
   color: #fff;
->>>>>>> 2d42275cf576fbd054cbbe8fd4133ff8d69d0de8
 }
 
 @media (max-width: 768px) {
@@ -158,4 +150,3 @@
     min-width: calc(70px + 1vw); /* 더 작은 최소 너비 */
   }
 }
->>>>>>> ea402c9c21af9133d51bf00176c72fb9cf850ef4

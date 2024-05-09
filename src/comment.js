@@ -47,6 +47,31 @@ function deleteComment(movieId, index) {
   location.reload();
 }
 
+function editComment(movieId, index) {
+  const movieData =
+    JSON.parse(localStorage.getItem(`movieData_${movieId}`)) || {};
+  const comments = movieData.comments || [];
+  const password = prompt("댓글을 수정하려면 비밀번호를 입력하세요:");
+  if (password !== movieData.password) {
+    alert("비밀번호가 일치하지 않습니다. 수정할 수 없습니다.");
+    return;
+  }
+  const newCommentText = prompt(
+    "수정할 댓글을 입력하세요:",
+    comments[index].comment
+  );
+  if (!newCommentText) {
+    alert("댓글을 입력하세요.");
+    return;
+  }
+  comments[index].comment = newCommentText;
+  localStorage.setItem(
+    `movieData_${movieId}`,
+    JSON.stringify({ ...movieData, comments })
+  );
+  location.reload();
+}
+
 // function createCommentContainer : 댓글 컨테이너를 생성하는 함수.
 // 영화 ID를 받아 이전에 작성된 댓글들과 댓글 작성폼을 포함한 컨테이너를 만들어 반환.
 function createCommentContainer(movieId) {
@@ -96,12 +121,23 @@ function createCommentContainer(movieId) {
       const commentItem = document.createElement("li");
       commentItem.textContent = `${commentObj.comment} by ${commentObj.id}`;
 
+      const editButton = document.createElement("button");
+      editButton.textContent = "수정";
+      editButton.addEventListener("click", () => {
+        editComment(movieId, index);
+      });
+
       const deleteButton = document.createElement("button");
       deleteButton.textContent = "삭제";
       deleteButton.addEventListener("click", () => {
         deleteComment(movieId, index);
       });
-      commentItem.appendChild(deleteButton);
+
+      const buttonContainer = document.createElement("div");
+
+      buttonContainer.appendChild(editButton);
+      buttonContainer.appendChild(deleteButton);
+      commentItem.appendChild(buttonContainer);
       commentsList.appendChild(commentItem);
     });
     previousCommentsElement.appendChild(commentsList);

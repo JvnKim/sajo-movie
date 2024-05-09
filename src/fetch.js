@@ -197,9 +197,4 @@ export function handleSlider(divId, container) {
             });
         });
     });
-<<<<<<< HEAD
-  });
 }
-=======
-}
->>>>>>> ea402c9c21af9133d51bf00176c72fb9cf850ef4
