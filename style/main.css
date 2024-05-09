@@ -154,7 +154,7 @@ body {
   align-items: center;
 }
 #movie-info-text {
-  font-size: 25px;
+  font-size: 20px;
   flex-grow: 0;
 }
 #linkContainer {
@@ -180,6 +180,11 @@ body {
   color: var(--YaleBlue);
   background-color: #faf9f6;
   box-shadow: 0 0 3px #faf9f6;
+}
+@media screen and (max-width: 1000px) {
+  #movie-info-text {
+    display: none; /* 보이지 않지만 공간은 유지 */
+  }
 }
 /* 운성 */
 
